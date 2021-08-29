@@ -6,6 +6,10 @@
 package tercerreto_odph;
 
 import java.awt.Component;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+import tercerreto_odph.Classes.Cliente;
 
 /**
  *
@@ -44,9 +48,9 @@ public class MainFrame extends javax.swing.JFrame {
         txtDireccion = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         btnNuevoCliente = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnGrabarCliente = new javax.swing.JButton();
+        btnLimpiarTabCliente = new javax.swing.JButton();
+        btnSalirTabCliente = new javax.swing.JButton();
         tabCtaAhorros = new javax.swing.JPanel();
         tabCtaCorriente = new javax.swing.JPanel();
         tabCDAT = new javax.swing.JPanel();
@@ -105,11 +109,38 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Grabar");
+        btnGrabarCliente.setMnemonic('G');
+        btnGrabarCliente.setText("Grabar");
+        btnGrabarCliente.setEnabled(false);
+        btnGrabarCliente.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnGrabarClienteActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Limpiar");
+        btnLimpiarTabCliente.setMnemonic('L');
+        btnLimpiarTabCliente.setText("Limpiar");
+        btnLimpiarTabCliente.setEnabled(false);
+        btnLimpiarTabCliente.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnLimpiarTabClienteActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Salir");
+        btnSalirTabCliente.setMnemonic('S');
+        btnSalirTabCliente.setText("Salir");
+        btnSalirTabCliente.setToolTipText("");
+        btnSalirTabCliente.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnSalirTabClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -119,12 +150,12 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnNuevoCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(btnGrabarCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addContainerGap())
+                .addComponent(btnLimpiarTabCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                .addComponent(btnSalirTabCliente)
+                .addGap(46, 46, 46))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,9 +163,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevoCliente)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(btnGrabarCliente)
+                    .addComponent(btnLimpiarTabCliente)
+                    .addComponent(btnSalirTabCliente))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -145,34 +176,27 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(tabClienteLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabClienteLayout.createSequentialGroup()
-                        .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCorreo, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblCelular, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addGap(3, 3, 3)
-                        .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabClienteLayout.createSequentialGroup()
-                                .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(tabClienteLayout.createSequentialGroup()
                         .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(tabClienteLayout.createSequentialGroup()
                                 .addGap(43, 43, 43)
                                 .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDocumento, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblNombre, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblDireccion, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addGap(3, 3, 3)
-                                .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNombre)
-                                    .addComponent(txtDireccion)
-                                    .addGroup(tabClienteLayout.createSequentialGroup()
-                                        .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 295, Short.MAX_VALUE))))
-                            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap())))
+                                    .addComponent(lblNombre)
+                                    .addComponent(lblDocumento)
+                                    .addComponent(lblDireccion)))
+                            .addComponent(lblCorreo)
+                            .addGroup(tabClienteLayout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(lblCelular)))
+                        .addGap(18, 18, 18)
+                        .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         tabClienteLayout.setVerticalGroup(
             tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -181,7 +205,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDocumento)
                     .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGap(18, 18, 18)
                 .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNombre)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -197,7 +221,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCelular)
                     .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(32, 32, 32)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
@@ -212,7 +236,7 @@ public class MainFrame extends javax.swing.JFrame {
         tabCtaAhorros.setLayout(tabCtaAhorrosLayout);
         tabCtaAhorrosLayout.setHorizontalGroup(
             tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 605, Short.MAX_VALUE)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
         tabCtaAhorrosLayout.setVerticalGroup(
             tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,7 +251,7 @@ public class MainFrame extends javax.swing.JFrame {
         tabCtaCorriente.setLayout(tabCtaCorrienteLayout);
         tabCtaCorrienteLayout.setHorizontalGroup(
             tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 605, Short.MAX_VALUE)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
         tabCtaCorrienteLayout.setVerticalGroup(
             tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,7 +266,7 @@ public class MainFrame extends javax.swing.JFrame {
         tabCDAT.setLayout(tabCDATLayout);
         tabCDATLayout.setHorizontalGroup(
             tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 605, Short.MAX_VALUE)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
         tabCDATLayout.setVerticalGroup(
             tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,7 +281,7 @@ public class MainFrame extends javax.swing.JFrame {
         tabTCredito.setLayout(tabTCreditoLayout);
         tabTCreditoLayout.setHorizontalGroup(
             tabTCreditoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 605, Short.MAX_VALUE)
+            .addGap(0, 640, Short.MAX_VALUE)
         );
         tabTCreditoLayout.setVerticalGroup(
             tabTCreditoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -271,8 +295,8 @@ public class MainFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addComponent(tabGroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(39, Short.MAX_VALUE)
+                .addComponent(tabGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
@@ -280,7 +304,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(tabGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
@@ -303,8 +327,106 @@ public class MainFrame extends javax.swing.JFrame {
         
         //Pone el foco en el Documento del cliente
         txtDocumento.requestFocus();
+        btnNuevoCliente.setEnabled(false);
+        btnGrabarCliente.setEnabled(true);
+        btnLimpiarTabCliente.setEnabled(true);
+        
     }//GEN-LAST:event_btnNuevoClienteActionPerformed
 
+    private void btnSalirTabClienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabClienteActionPerformed
+    {//GEN-HEADEREND:event_btnSalirTabClienteActionPerformed
+        // TODO add your handling code here:
+      System.exit(0);
+    }//GEN-LAST:event_btnSalirTabClienteActionPerformed
+
+    private void btnGrabarClienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnGrabarClienteActionPerformed
+    {//GEN-HEADEREND:event_btnGrabarClienteActionPerformed
+        // TODO add your handling code here:
+        String nomCliente, docCliente, mailCliente, celCliente, dirCliente;
+      
+        Cliente objCliente = new Cliente();
+        
+        if (funValidaString(docCliente = txtDocumento.getText()) == 1) {
+            JOptionPane.showMessageDialog(rootPane, "El documento del Cliente no puede ser nulo.");
+            txtDocumento.requestFocus();
+            return;
+        } else {
+            objCliente.setDocCliente(docCliente);
+        }
+
+        if (funValidaString(nomCliente = txtNombre.getText()) == 1) {
+            JOptionPane.showMessageDialog(rootPane, "El nombre del Cliente no puede ser nulo.");
+            txtNombre.requestFocus();
+            return;
+        } else {
+            objCliente.setNomCliente(nomCliente);
+        }        
+
+        //objCliente.setDirCliente(txtDireccion.getText());
+        if (funValidaString(dirCliente = txtDireccion.getText()) == 1) {
+            JOptionPane.showMessageDialog(rootPane, "La dirección del Cliente no puede ser nula.");
+            txtDireccion.requestFocus();
+            return;
+        } else {
+            objCliente.setDirCliente(dirCliente);
+        }        
+       
+        //objCliente.setEmailCliente(txtCorreo.getText());
+        if (funValidaString(mailCliente = txtCorreo.getText()) == 1) {
+            JOptionPane.showMessageDialog(rootPane, "El correo del Cliente no puede ser nulo.");
+            txtCorreo.requestFocus();
+            return;
+        } else {
+            //Validar el formato del correo electrónico con RegEx.
+            Pattern pat = Pattern.compile("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
+            Matcher mat = pat.matcher(mailCliente);                                                                           
+            if (!mat.matches()) {
+                JOptionPane.showMessageDialog(rootPane, "El formato del correo no es correcto.");                                                                       
+                txtCorreo.requestFocus();
+                txtCorreo.selectAll();
+                return;
+            } else {
+                objCliente.setEmailCliente(mailCliente);
+            }
+        }
+        
+        //objCliente.setCelCliente(txtCelular.getText());
+        if (funValidaString(celCliente = txtCelular.getText()) == 1) {
+            JOptionPane.showMessageDialog(rootPane, "El celular del Cliente no puede ser nulo.");
+            txtCelular.requestFocus();
+            return;
+        } else {
+            objCliente.setCelCliente(celCliente);
+        }
+        
+        JOptionPane.showMessageDialog(rootPane, objCliente.getNomCliente() );
+    
+    }//GEN-LAST:event_btnGrabarClienteActionPerformed
+
+    private void btnLimpiarTabClienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnLimpiarTabClienteActionPerformed
+    {//GEN-HEADEREND:event_btnLimpiarTabClienteActionPerformed
+        // TODO add your handling code here:
+        // Recorrer los componentes de la pestaña y vaciarlos si son
+        // de tipo JTextField
+        for (Component comp : tabCliente.getComponents()) {
+            if (comp instanceof javax.swing.JTextField) {
+                ((javax.swing.JTextField)comp).setText("");
+            }
+        }
+        //Pone el foco en el Documento del cliente
+        txtDocumento.requestFocus();
+    }//GEN-LAST:event_btnLimpiarTabClienteActionPerformed
+
+    private int funValidaString(String aux) {
+        
+        if (aux.length() > 0) {
+            return 0;
+        } else {
+            return 1;
+        }
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -341,10 +463,10 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnGrabarCliente;
+    private javax.swing.JButton btnLimpiarTabCliente;
     private javax.swing.JButton btnNuevoCliente;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnSalirTabCliente;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCelular;
     private javax.swing.JLabel lblCorreo;
