@@ -11,6 +11,7 @@ public class Cliente {
     private String celCliente;
     private String dirCliente;
     
+    //iniciar los Getters y los Setters de la clase Cliente
     public void setDocCliente (String auxi) {
         this.docCliente = auxi;
     }
@@ -50,5 +51,7 @@ public class Cliente {
     public String getDirCliente () {
         return dirCliente;
     }
+    
+    //
     
 }
