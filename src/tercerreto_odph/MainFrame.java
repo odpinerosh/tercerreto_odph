@@ -6,8 +6,8 @@
 package tercerreto_odph;
 
 import java.awt.Component;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.regex.*;
+import java.util.*;
 import javax.swing.JOptionPane;
 import tercerreto_odph.Classes.Cliente;
 
@@ -20,7 +20,11 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainFrame
      */
+    
+    ArrayList<Cliente> LISTA_CLIENTES = new ArrayList<>(); 
+    
     public MainFrame() {
+        
         initComponents();
     }
         
@@ -31,8 +35,7 @@ public class MainFrame extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents()
-    {
+    private void initComponents() {
 
         tabGroup = new javax.swing.JTabbedPane();
         tabCliente = new javax.swing.JPanel();
@@ -46,7 +49,7 @@ public class MainFrame extends javax.swing.JFrame {
         txtCorreo = new javax.swing.JTextField();
         txtCelular = new javax.swing.JTextField();
         txtDireccion = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
+        panBotonesCliente = new javax.swing.JPanel();
         btnNuevoCliente = new javax.swing.JButton();
         btnGrabarCliente = new javax.swing.JButton();
         btnLimpiarTabCliente = new javax.swing.JButton();
@@ -91,10 +94,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         txtDireccion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtDireccion.setEnabled(false);
-        txtDireccion.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDireccionActionPerformed(evt);
             }
         });
@@ -102,10 +103,8 @@ public class MainFrame extends javax.swing.JFrame {
         btnNuevoCliente.setMnemonic('N');
         btnNuevoCliente.setText("Nuevo");
         btnNuevoCliente.setToolTipText("");
-        btnNuevoCliente.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnNuevoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNuevoClienteActionPerformed(evt);
             }
         });
@@ -113,10 +112,8 @@ public class MainFrame extends javax.swing.JFrame {
         btnGrabarCliente.setMnemonic('G');
         btnGrabarCliente.setText("Grabar");
         btnGrabarCliente.setEnabled(false);
-        btnGrabarCliente.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnGrabarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnGrabarClienteActionPerformed(evt);
             }
         });
@@ -124,10 +121,8 @@ public class MainFrame extends javax.swing.JFrame {
         btnLimpiarTabCliente.setMnemonic('L');
         btnLimpiarTabCliente.setText("Limpiar");
         btnLimpiarTabCliente.setEnabled(false);
-        btnLimpiarTabCliente.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnLimpiarTabCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiarTabClienteActionPerformed(evt);
             }
         });
@@ -135,19 +130,17 @@ public class MainFrame extends javax.swing.JFrame {
         btnSalirTabCliente.setMnemonic('S');
         btnSalirTabCliente.setText("Salir");
         btnSalirTabCliente.setToolTipText("");
-        btnSalirTabCliente.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        btnSalirTabCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSalirTabClienteActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panBotonesClienteLayout = new javax.swing.GroupLayout(panBotonesCliente);
+        panBotonesCliente.setLayout(panBotonesClienteLayout);
+        panBotonesClienteLayout.setHorizontalGroup(
+            panBotonesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panBotonesClienteLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnNuevoCliente)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -158,11 +151,11 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(btnSalirTabCliente)
                 .addGap(46, 46, 46))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        panBotonesClienteLayout.setVerticalGroup(
+            panBotonesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panBotonesClienteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panBotonesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNuevoCliente)
                     .addComponent(btnGrabarCliente)
                     .addComponent(btnLimpiarTabCliente)
@@ -177,7 +170,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(tabClienteLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panBotonesCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(tabClienteLayout.createSequentialGroup()
                         .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(tabClienteLayout.createSequentialGroup()
@@ -223,7 +216,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(lblCelular)
                     .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panBotonesCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -234,10 +227,8 @@ public class MainFrame extends javax.swing.JFrame {
         tabCtaAhorros.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener()
-        {
-            public void actionPerformed(java.awt.event.ActionEvent evt)
-            {
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
@@ -338,6 +329,7 @@ public class MainFrame extends javax.swing.JFrame {
         for (Component comp : tabCliente.getComponents()) {
             if (comp instanceof javax.swing.JTextField) {
                 ((javax.swing.JTextField)comp).setEnabled(true);
+                ((javax.swing.JTextField)comp).setText("");
             }
         }
         
@@ -362,7 +354,7 @@ public class MainFrame extends javax.swing.JFrame {
         Cliente objCliente = new Cliente();
         
         if (funValidaString(docCliente = txtDocumento.getText()) == 1) {
-            JOptionPane.showMessageDialog(rootPane, "El documento del Cliente no puede ser nulo.");
+            JOptionPane.showMessageDialog(rootPane, "El documento del Cliente no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
             txtDocumento.requestFocus();
             return;
         } else {
@@ -370,7 +362,7 @@ public class MainFrame extends javax.swing.JFrame {
         }
 
         if (funValidaString(nomCliente = txtNombre.getText()) == 1) {
-            JOptionPane.showMessageDialog(rootPane, "El nombre del Cliente no puede ser nulo.");
+            JOptionPane.showMessageDialog(rootPane, "El nombre del Cliente no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
             txtNombre.requestFocus();
             return;
         } else {
@@ -379,7 +371,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         //objCliente.setDirCliente(txtDireccion.getText());
         if (funValidaString(dirCliente = txtDireccion.getText()) == 1) {
-            JOptionPane.showMessageDialog(rootPane, "La dirección del Cliente no puede ser nula.");
+            JOptionPane.showMessageDialog(rootPane, "La dirección del Cliente no puede ser nula.","¡Atención!", JOptionPane.ERROR_MESSAGE);
             txtDireccion.requestFocus();
             return;
         } else {
@@ -388,7 +380,7 @@ public class MainFrame extends javax.swing.JFrame {
        
         //objCliente.setEmailCliente(txtCorreo.getText());
         if (funValidaString(mailCliente = txtCorreo.getText()) == 1) {
-            JOptionPane.showMessageDialog(rootPane, "El correo del Cliente no puede ser nulo.");
+            JOptionPane.showMessageDialog(rootPane, "El correo del Cliente no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
             txtCorreo.requestFocus();
             return;
         } else {
@@ -396,7 +388,7 @@ public class MainFrame extends javax.swing.JFrame {
             Pattern pat = Pattern.compile("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
             Matcher mat = pat.matcher(mailCliente);                                                                           
             if (!mat.matches()) {
-                JOptionPane.showMessageDialog(rootPane, "El formato del correo no es correcto.");                                                                       
+                JOptionPane.showMessageDialog(rootPane, "El formato del correo no es correcto.","¡Atención!", JOptionPane.ERROR_MESSAGE);                                                                       
                 txtCorreo.requestFocus();
                 txtCorreo.selectAll();
                 return;
@@ -407,15 +399,34 @@ public class MainFrame extends javax.swing.JFrame {
         
         //objCliente.setCelCliente(txtCelular.getText());
         if (funValidaString(celCliente = txtCelular.getText()) == 1) {
-            JOptionPane.showMessageDialog(rootPane, "El celular del Cliente no puede ser nulo.");
+            JOptionPane.showMessageDialog(rootPane, "El celular del Cliente no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
             txtCelular.requestFocus();
             return;
         } else {
             objCliente.setCelCliente(celCliente);
         }
         
-        JOptionPane.showMessageDialog(rootPane, objCliente.getNomCliente() );
-    
+        LISTA_CLIENTES.add(objCliente);
+        JOptionPane.showMessageDialog(rootPane, "Se grabó el cliente. Hay " + LISTA_CLIENTES.size() + " clientes registrados.", "Cliente guardado", JOptionPane.INFORMATION_MESSAGE);
+        
+        for (Component comp : tabCliente.getComponents()) {
+            if (comp instanceof javax.swing.JTextField) {
+                ((javax.swing.JTextField)comp).setEnabled(false);
+            } else {
+                if (comp instanceof javax.swing.JPanel) {
+                    for (Component panComp : panBotonesCliente.getComponents()) {
+                        if (((javax.swing.JButton)panComp).getText() == "Nuevo" || ((javax.swing.JButton)panComp).getText() == "Salir") {
+                            ((javax.swing.JButton)panComp).setEnabled(true);
+                        } else {
+                            ((javax.swing.JButton)panComp).setEnabled(false);
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+        
     }//GEN-LAST:event_btnGrabarClienteActionPerformed
 
     private void btnLimpiarTabClienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnLimpiarTabClienteActionPerformed
@@ -489,12 +500,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnNuevoCliente;
     private javax.swing.JButton btnSalirTabCliente;
     private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCelular;
     private javax.swing.JLabel lblCorreo;
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblDocumento;
     private javax.swing.JLabel lblNombre;
+    private javax.swing.JPanel panBotonesCliente;
     private javax.swing.JPanel tabCDAT;
     private javax.swing.JPanel tabCliente;
     private javax.swing.JPanel tabCtaAhorros;
