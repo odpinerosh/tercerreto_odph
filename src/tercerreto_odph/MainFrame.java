@@ -23,7 +23,7 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         initComponents();
     }
-
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -52,6 +52,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnLimpiarTabCliente = new javax.swing.JButton();
         btnSalirTabCliente = new javax.swing.JButton();
         tabCtaAhorros = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         tabCtaCorriente = new javax.swing.JPanel();
         tabCDAT = new javax.swing.JPanel();
         tabTCredito = new javax.swing.JPanel();
@@ -229,18 +230,33 @@ public class MainFrame extends javax.swing.JFrame {
         tabGroup.addTab("Cliente", tabCliente);
         tabCliente.getAccessibleContext().setAccessibleName("tbdCliente");
 
-        tabCtaAhorros.setBackground(new java.awt.Color(255, 204, 204));
+        tabCtaAhorros.setBackground(new java.awt.Color(255, 255, 255));
         tabCtaAhorros.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout tabCtaAhorrosLayout = new javax.swing.GroupLayout(tabCtaAhorros);
         tabCtaAhorros.setLayout(tabCtaAhorrosLayout);
         tabCtaAhorrosLayout.setHorizontalGroup(
             tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGroup(tabCtaAhorrosLayout.createSequentialGroup()
+                .addGap(261, 261, 261)
+                .addComponent(jButton1)
+                .addContainerGap(282, Short.MAX_VALUE))
         );
         tabCtaAhorrosLayout.setVerticalGroup(
             tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 295, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, tabCtaAhorrosLayout.createSequentialGroup()
+                .addContainerGap(174, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(92, 92, 92))
         );
 
         tabGroup.addTab("Cta. Ahorros", tabCtaAhorros);
@@ -330,7 +346,6 @@ public class MainFrame extends javax.swing.JFrame {
         btnNuevoCliente.setEnabled(false);
         btnGrabarCliente.setEnabled(true);
         btnLimpiarTabCliente.setEnabled(true);
-        
     }//GEN-LAST:event_btnNuevoClienteActionPerformed
 
     private void btnSalirTabClienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabClienteActionPerformed
@@ -417,6 +432,12 @@ public class MainFrame extends javax.swing.JFrame {
         txtDocumento.requestFocus();
     }//GEN-LAST:event_btnLimpiarTabClienteActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_jButton1ActionPerformed
+    {//GEN-HEADEREND:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     private int funValidaString(String aux) {
         
         if (aux.length() > 0) {
@@ -467,6 +488,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnLimpiarTabCliente;
     private javax.swing.JButton btnNuevoCliente;
     private javax.swing.JButton btnSalirTabCliente;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCelular;
     private javax.swing.JLabel lblCorreo;
