@@ -302,7 +302,7 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32)
                 .addComponent(panBotonesCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         tabGroup.addTab("Cliente", tabCliente);
@@ -310,6 +310,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         tabCtaAhorros.setBackground(new java.awt.Color(255, 255, 255));
         tabCtaAhorros.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tabCtaAhorros.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnNvaCtaAhorro.setMnemonic('N');
         btnNvaCtaAhorro.setText("Nuevo");
@@ -381,90 +382,42 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        tabCtaAhorros.add(panBotonesAhorro, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 266, -1, -1));
+
         lblNumAhorros.setText("Cuenta número:");
+        tabCtaAhorros.add(lblNumAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 31, -1, -1));
 
         lblFechAhorros.setText("Fecha de apertura:");
+        tabCtaAhorros.add(lblFechAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 75, -1, -1));
 
         lblIntAhorros.setText("Interés pactado:");
+        tabCtaAhorros.add(lblIntAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 75, -1, -1));
 
         lblSaldoAhorros.setText("Saldo:");
+        tabCtaAhorros.add(lblSaldoAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 124, -1, -1));
+        tabCtaAhorros.add(txtNumAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 26, 218, -1));
+        tabCtaAhorros.add(calFechAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 70, 134, -1));
 
         spinIntAhorros.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 4.0d, 0.1d));
+        tabCtaAhorros.add(spinIntAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 70, 66, -1));
 
         txtSaldoAhorros.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtSaldoAhorros.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tabCtaAhorros.add(txtSaldoAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 119, 211, -1));
 
         lblSaldoAhorros1.setText("Interés generado:");
+        tabCtaAhorros.add(lblSaldoAhorros1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 168, -1, -1));
 
         txtRendAhorros.setEditable(false);
         txtRendAhorros.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtRendAhorros.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-
-        javax.swing.GroupLayout tabCtaAhorrosLayout = new javax.swing.GroupLayout(tabCtaAhorros);
-        tabCtaAhorros.setLayout(tabCtaAhorrosLayout);
-        tabCtaAhorrosLayout.setHorizontalGroup(
-            tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabCtaAhorrosLayout.createSequentialGroup()
-                .addGroup(tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabCtaAhorrosLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(panBotonesAhorro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(tabCtaAhorrosLayout.createSequentialGroup()
-                                .addGroup(tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblIntAhorros)
-                                    .addComponent(lblNumAhorros)
-                                    .addGroup(tabCtaAhorrosLayout.createSequentialGroup()
-                                        .addComponent(lblSaldoAhorros)
-                                        .addGap(10, 10, 10)))
-                                .addGap(18, 18, 18)
-                                .addGroup(tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(tabCtaAhorrosLayout.createSequentialGroup()
-                                        .addComponent(spinIntAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblFechAhorros)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(calFechAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtNumAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtSaldoAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(tabCtaAhorrosLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(lblSaldoAhorros1)
-                        .addGap(28, 28, 28)
-                        .addComponent(txtRendAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-        tabCtaAhorrosLayout.setVerticalGroup(
-            tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabCtaAhorrosLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNumAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNumAhorros))
-                .addGap(18, 18, 18)
-                .addGroup(tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblIntAhorros)
-                        .addComponent(spinIntAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblFechAhorros))
-                    .addComponent(calFechAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSaldoAhorros)
-                    .addComponent(txtSaldoAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSaldoAhorros1)
-                    .addComponent(txtRendAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                .addComponent(panBotonesAhorro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
-        );
+        tabCtaAhorros.add(txtRendAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 163, 211, -1));
 
         tabGroup.addTab("Cta. Ahorros", tabCtaAhorros);
 
         tabCtaCorriente.setBackground(new java.awt.Color(255, 255, 255));
         tabCtaCorriente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tabCtaCorriente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnNvaCtaCorriente.setMnemonic('N');
         btnNvaCtaCorriente.setText("Nuevo");
@@ -536,105 +489,62 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        tabCtaCorriente.add(panBotonesCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 266, -1, -1));
+
         lblNumCorriente.setText("Cuenta número:");
+        tabCtaCorriente.add(lblNumCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 31, -1, -1));
 
         spinIntCorriente.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 4.0d, 0.1d));
+        tabCtaCorriente.add(spinIntCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 66, -1));
 
         jLabel5.setText("Fecha de apertura:");
+        tabCtaCorriente.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 75, -1, -1));
 
         lblIntCorriente.setText("Interés pactado:");
+        tabCtaCorriente.add(lblIntCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 75, -1, -1));
 
         lblSaldoCorriente.setText("Saldo:");
+        tabCtaCorriente.add(lblSaldoCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 113, -1, -1));
+        tabCtaCorriente.add(txtNumCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 26, 218, -1));
+        tabCtaCorriente.add(calFechCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 70, 134, -1));
 
         lblSobreCorriente.setText("Sobregiro:");
+        tabCtaCorriente.add(lblSobreCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 145, -1, -1));
 
         lblRendCorriente.setText("Interés generado:");
+        tabCtaCorriente.add(lblRendCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 183, -1, -1));
 
         txtSaldoCorriente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtSaldoCorriente.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tabCtaCorriente.add(txtSaldoCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 108, 215, -1));
 
         txtSobreCorriente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtSobreCorriente.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tabCtaCorriente.add(txtSobreCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 215, -1));
 
         txtRendCorriente.setEditable(false);
         txtRendCorriente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
         txtRendCorriente.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-
-        javax.swing.GroupLayout tabCtaCorrienteLayout = new javax.swing.GroupLayout(tabCtaCorriente);
-        tabCtaCorriente.setLayout(tabCtaCorrienteLayout);
-        tabCtaCorrienteLayout.setHorizontalGroup(
-            tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabCtaCorrienteLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabCtaCorrienteLayout.createSequentialGroup()
-                        .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblSaldoCorriente)
-                            .addComponent(lblNumCorriente)
-                            .addComponent(lblSobreCorriente)
-                            .addComponent(lblRendCorriente)
-                            .addComponent(lblIntCorriente))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNumCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(tabCtaCorrienteLayout.createSequentialGroup()
-                                .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtSaldoCorriente, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tabCtaCorrienteLayout.createSequentialGroup()
-                                        .addComponent(spinIntCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(34, 34, 34)
-                                        .addComponent(jLabel5))
-                                    .addComponent(txtRendCorriente, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtSobreCorriente, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(calFechCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(panBotonesCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-        tabCtaCorrienteLayout.setVerticalGroup(
-            tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabCtaCorrienteLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNumCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNumCorriente))
-                .addGap(18, 18, 18)
-                .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(lblIntCorriente)
-                        .addComponent(spinIntCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5))
-                    .addComponent(calFechCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSaldoCorriente)
-                    .addComponent(txtSaldoCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSobreCorriente)
-                    .addComponent(txtSobreCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRendCorriente)
-                    .addComponent(txtRendCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(panBotonesCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
-        );
+        tabCtaCorriente.add(txtRendCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 178, 215, -1));
 
         tabGroup.addTab("Cta. Corriente", tabCtaCorriente);
 
         tabCDAT.setBackground(new java.awt.Color(255, 255, 255));
         tabCDAT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tabCDAT.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         spinPlazoCDT.setModel(new javax.swing.SpinnerNumberModel(1, 1, 60, 1));
+        tabCDAT.add(spinPlazoCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 64, 66, -1));
 
         txtMontoCDT.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtMontoCDT.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tabCDAT.add(txtMontoCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 102, 215, -1));
 
         lblFechCDT.setText("Fecha de apertura:");
+        tabCDAT.add(lblFechCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 31, -1, -1));
 
         lblPlazoCDT.setText("Plazo:");
+        tabCDAT.add(lblPlazoCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 69, -1, -1));
 
         btnNvoCDT.setMnemonic('N');
         btnNvoCDT.setText("Nuevo");
@@ -706,108 +616,46 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        tabCDAT.add(panBotonesCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 266, -1, -1));
+
         lblSaldoCorriente1.setText("Monto:");
+        tabCDAT.add(lblSaldoCorriente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 107, -1, -1));
+        tabCDAT.add(txtNumCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 26, 115, -1));
 
         txtRendCDT.setEditable(false);
         txtRendCDT.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtRendCDT.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tabCDAT.add(txtRendCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 140, 215, -1));
+        tabCDAT.add(calFechCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 26, 134, -1));
 
         lblRendCorriente1.setText("Interés generado:");
+        tabCDAT.add(lblRendCorriente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 145, -1, -1));
 
         lblNumCDT.setText("Número del CDT:");
+        tabCDAT.add(lblNumCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 31, -1, -1));
 
         lblIntCDT.setText("Interés pactado:");
+        tabCDAT.add(lblIntCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 69, -1, -1));
 
         spinIntCDT.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 12.0d, 0.1d));
+        tabCDAT.add(spinIntCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 64, 66, -1));
 
         lblRendCorriente2.setText("Valor retorno:");
+        tabCDAT.add(lblRendCorriente2, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 183, -1, -1));
 
         txtRetCDT.setEditable(false);
         txtRetCDT.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtRetCDT.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-
-        javax.swing.GroupLayout tabCDATLayout = new javax.swing.GroupLayout(tabCDAT);
-        tabCDAT.setLayout(tabCDATLayout);
-        tabCDATLayout.setHorizontalGroup(
-            tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabCDATLayout.createSequentialGroup()
-                .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabCDATLayout.createSequentialGroup()
-                        .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tabCDATLayout.createSequentialGroup()
-                                .addGap(54, 54, 54)
-                                .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblNumCDT)
-                                    .addComponent(lblSaldoCorriente1)
-                                    .addComponent(lblPlazoCDT)))
-                            .addGroup(tabCDATLayout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblRendCorriente2)
-                                    .addComponent(lblRendCorriente1))))
-                        .addGap(18, 18, 18)
-                        .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtRendCDT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                            .addComponent(txtMontoCDT, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtRetCDT)))
-                    .addGroup(tabCDATLayout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(spinPlazoCDT, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77)
-                        .addComponent(lblIntCDT)
-                        .addGap(18, 18, 18)
-                        .addComponent(spinIntCDT, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tabCDATLayout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(txtNumCDT, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblFechCDT)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(calFechCDT, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tabCDATLayout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addComponent(panBotonesCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-        tabCDATLayout.setVerticalGroup(
-            tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabCDATLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtNumCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(lblFechCDT)
-                        .addComponent(lblNumCDT))
-                    .addComponent(calFechCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(spinPlazoCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblIntCDT)
-                    .addComponent(spinIntCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPlazoCDT))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtMontoCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSaldoCorriente1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRendCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRendCorriente1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRetCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblRendCorriente2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(panBotonesCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
-        );
+        tabCDAT.add(txtRetCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 178, 215, -1));
 
         tabGroup.addTab("CDAT", tabCDAT);
 
         tabTCredito.setBackground(new java.awt.Color(255, 255, 255));
         tabTCredito.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tabTCredito.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         spinIntPactado.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 4.0d, 0.1d));
+        tabTCredito.add(spinIntPactado, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 20, 66, -1));
 
         txtCupoTarj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtCupoTarj.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -818,8 +666,10 @@ public class MainFrame extends javax.swing.JFrame {
                 txtCupoTarjActionPerformed(evt);
             }
         });
+        tabTCredito.add(txtCupoTarj, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 113, 200, -1));
 
         lblIntTarj.setText("Tasa interés:");
+        tabTCredito.add(lblIntTarj, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 25, -1, -1));
 
         btnNvaCtaCorriente1.setMnemonic('N');
         btnNvaCtaCorriente1.setText("Nuevo");
@@ -891,112 +741,43 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        tabTCredito.add(panBotonesCorriente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 268, -1, -1));
+
         lblCupoAsignado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCupoAsignado.setText("Cupo asignado:");
+        tabTCredito.add(lblCupoAsignado, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 113, -1, 26));
 
         txtUsadoTarj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtUsadoTarj.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tabTCredito.add(txtUsadoTarj, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 157, 200, -1));
+        tabTCredito.add(txtNumTarj, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 218, -1));
 
         txtIntGenerado.setEditable(false);
         txtIntGenerado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
         txtIntGenerado.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tabTCredito.add(txtIntGenerado, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 201, 200, -1));
 
         lblCupoUsado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCupoUsado.setText("Cupo utilizado:");
+        tabTCredito.add(lblCupoUsado, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 157, 98, 26));
 
         lblIntGenerado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblIntGenerado.setText("Interés generado:");
+        tabTCredito.add(lblIntGenerado, new org.netbeans.lib.awtextra.AbsoluteConstraints(87, 201, -1, 26));
 
         lblNumTarj.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblNumTarj.setText("Tarjeta #:");
+        tabTCredito.add(lblNumTarj, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 25, -1, -1));
+        tabTCredito.add(calFechExp, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 58, 134, -1));
 
         lblFechExp.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblFechExp.setText("Fecha de Expedición:");
+        lblFechExp.setText("Expedición:");
+        tabTCredito.add(lblFechExp, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 58, 96, 26));
 
         lblFechExp1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblFechExp1.setText("Fecha de apertura:");
-
-        javax.swing.GroupLayout tabTCreditoLayout = new javax.swing.GroupLayout(tabTCredito);
-        tabTCredito.setLayout(tabTCreditoLayout);
-        tabTCreditoLayout.setHorizontalGroup(
-            tabTCreditoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabTCreditoLayout.createSequentialGroup()
-                .addGroup(tabTCreditoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(tabTCreditoLayout.createSequentialGroup()
-                        .addGap(363, 363, 363)
-                        .addComponent(lblIntTarj)
-                        .addGap(12, 12, 12)
-                        .addComponent(spinIntPactado, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tabTCreditoLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(panBotonesCorriente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(tabTCreditoLayout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(tabTCreditoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(tabTCreditoLayout.createSequentialGroup()
-                                .addComponent(lblFechExp, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(calFechExp, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(tabTCreditoLayout.createSequentialGroup()
-                                .addComponent(lblNumTarj)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNumTarj, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(tabTCreditoLayout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addGroup(tabTCreditoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tabTCreditoLayout.createSequentialGroup()
-                                .addComponent(lblCupoAsignado)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtCupoTarj, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(tabTCreditoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(tabTCreditoLayout.createSequentialGroup()
-                                    .addComponent(lblIntGenerado)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtIntGenerado, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(tabTCreditoLayout.createSequentialGroup()
-                                    .addComponent(lblCupoUsado)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(txtUsadoTarj, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(tabTCreditoLayout.createSequentialGroup()
-                        .addGap(81, 81, 81)
-                        .addComponent(lblFechExp1)
-                        .addGap(18, 18, 18)
-                        .addComponent(calFechExp1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(47, Short.MAX_VALUE))
-        );
-        tabTCreditoLayout.setVerticalGroup(
-            tabTCreditoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabTCreditoLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(tabTCreditoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNumTarj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNumTarj)
-                    .addComponent(lblIntTarj)
-                    .addComponent(spinIntPactado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tabTCreditoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(calFechExp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFechExp))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(tabTCreditoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(calFechExp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblFechExp1))
-                .addGap(4, 4, 4)
-                .addGroup(tabTCreditoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCupoAsignado, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtCupoTarj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(tabTCreditoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCupoUsado)
-                    .addComponent(txtUsadoTarj, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(tabTCreditoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblIntGenerado)
-                    .addComponent(txtIntGenerado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addComponent(panBotonesCorriente1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
-        );
+        lblFechExp1.setText("Vencimiento:");
+        tabTCredito.add(lblFechExp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 58, -1, 26));
+        tabTCredito.add(calFechExp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 58, 134, -1));
 
         tabGroup.addTab("Tj. Crédito", tabTCredito);
 
@@ -1012,8 +793,8 @@ public class MainFrame extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addComponent(tabGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(tabGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(44, 44, 44))
         );
 
@@ -1192,20 +973,20 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirTabCDTActionPerformed
 
-    private void btnNvaCtaCorriente1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNvaCtaCorriente1ActionPerformed
-    {//GEN-HEADEREND:event_btnNvaCtaCorriente1ActionPerformed
+    private void btnSalirTabCorriente1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabCorriente1ActionPerformed
+    {//GEN-HEADEREND:event_btnSalirTabCorriente1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnNvaCtaCorriente1ActionPerformed
+    }//GEN-LAST:event_btnSalirTabCorriente1ActionPerformed
 
     private void btnCalcIntCorriente1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCalcIntCorriente1ActionPerformed
     {//GEN-HEADEREND:event_btnCalcIntCorriente1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCalcIntCorriente1ActionPerformed
 
-    private void btnSalirTabCorriente1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabCorriente1ActionPerformed
-    {//GEN-HEADEREND:event_btnSalirTabCorriente1ActionPerformed
+    private void btnNvaCtaCorriente1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNvaCtaCorriente1ActionPerformed
+    {//GEN-HEADEREND:event_btnNvaCtaCorriente1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalirTabCorriente1ActionPerformed
+    }//GEN-LAST:event_btnNvaCtaCorriente1ActionPerformed
 
     private void txtCupoTarjActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtCupoTarjActionPerformed
     {//GEN-HEADEREND:event_txtCupoTarjActionPerformed
