@@ -331,30 +331,40 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="panBotonesAhorro" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lblIntAhorros" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblNumAhorros" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Component id="lblSaldoAhorros" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="spinIntAhorros" min="-2" pref="66" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="lblFechAhorros" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="calFechAhorros" min="-2" pref="134" max="-2" attributes="0"/>
+                                  <Component id="panBotonesAhorro" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="lblIntAhorros" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblNumAhorros" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Component id="lblSaldoAhorros" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="spinIntAhorros" min="-2" pref="66" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="lblFechAhorros" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Component id="calFechAhorros" min="-2" pref="134" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="txtNumAhorros" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
+                                          <Component id="txtSaldoAhorros" alignment="0" min="-2" pref="211" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
-                                  <Component id="txtNumAhorros" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
-                                  <Component id="txtSalAhorros" alignment="0" min="-2" pref="214" max="-2" attributes="0"/>
                               </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="lblSaldoAhorros1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Component id="txtRendAhorros" min="-2" pref="211" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="38" max="32767" attributes="0"/>
@@ -380,10 +390,15 @@
                       </Group>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtSalAhorros" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblSaldoAhorros" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtSaldoAhorros" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="92" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblSaldoAhorros1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRendAhorros" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="48" max="32767" attributes="0"/>
                       <Component id="panBotonesAhorro" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   </Group>
@@ -504,7 +519,27 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtSalAhorros">
+            <Component class="javax.swing.JFormattedTextField" name="txtSaldoAhorros">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format subtype="0" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblSaldoAhorros1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Inter&#xe9;s generado:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="txtRendAhorros">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format subtype="0" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
@@ -530,36 +565,37 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="53" pref="53" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="panBotonesAhorro1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
+                          <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="lblIntCorriente" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblSaldoCorriente" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="lblNumCorriente" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="lblSobreCorriente" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lblSaldoCorriente" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="lblSobreCorriente" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblRendCorriente" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblIntCorriente" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txtNumCorriente" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="spinIntCorriente" min="-2" pref="66" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="txtSaldoCorriente" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="spinIntCorriente" min="-2" pref="66" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Component id="txtRendCorriente" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtSobreCorriente" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="calFechCorriente" min="-2" pref="134" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="txtNumCorriente" alignment="0" min="-2" pref="218" max="-2" attributes="0"/>
-                                  <Component id="txtSalCorriente" alignment="0" min="-2" pref="214" max="-2" attributes="0"/>
-                                  <Component id="txtSobreCorriente" min="-2" pref="214" max="-2" attributes="0"/>
                               </Group>
                           </Group>
+                          <Component id="panBotonesCorriente" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="38" max="32767" attributes="0"/>
                   </Group>
@@ -582,25 +618,30 @@
                           </Group>
                           <Component id="calFechCorriente" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtSalCorriente" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblSaldoCorriente" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtSaldoCorriente" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtSobreCorriente" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblSobreCorriente" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtSobreCorriente" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="53" max="32767" attributes="0"/>
-                      <Component id="panBotonesAhorro1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblRendCorriente" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRendCorriente" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="33" max="32767" attributes="0"/>
+                      <Component id="panBotonesCorriente" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="panBotonesAhorro1">
+            <Container class="javax.swing.JPanel" name="panBotonesCorriente">
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -699,8 +740,6 @@
                 <Property name="text" type="java.lang.String" value="Fecha de apertura:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtSalCorriente">
-            </Component>
             <Component class="javax.swing.JLabel" name="lblIntCorriente">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Inter&#xe9;s pactado:"/>
@@ -720,12 +759,43 @@
                 <Property name="text" type="java.lang.String" value="Sobregiro:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtSobreCorriente">
+            <Component class="javax.swing.JLabel" name="lblRendCorriente">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Inter&#xe9;s generado:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="txtSaldoCorriente">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format subtype="0" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="txtSobreCorriente">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format subtype="0" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="txtRendCorriente">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format subtype="0" type="4"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+              </Properties>
             </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="tabCDAT">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                 <EtchetBorder/>
@@ -743,15 +813,262 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="640" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="lblNumCDT" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblSaldoCorriente1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblPlazoCDT" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="lblRendCorriente2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblRendCorriente1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="txtRendCDT" alignment="0" pref="215" max="32767" attributes="0"/>
+                                  <Component id="txtMontoCDT" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtRetCDT" alignment="1" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="180" pref="180" max="-2" attributes="0"/>
+                              <Component id="spinPlazoCDT" min="-2" pref="66" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                              <Component id="lblIntCDT" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="spinIntCDT" min="-2" pref="66" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="180" pref="180" max="-2" attributes="0"/>
+                              <Component id="txtNumCDT" min="-2" pref="115" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="lblFechCDT" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="calFechCDT" min="-2" pref="134" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="53" pref="53" max="-2" attributes="0"/>
+                              <Component id="panBotonesCDT" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="38" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="295" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                              <Component id="txtNumCDT" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblFechCDT" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblNumCDT" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="calFechCDT" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="spinPlazoCDT" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblIntCDT" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="spinIntCDT" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblPlazoCDT" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtMontoCDT" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblSaldoCorriente1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtRendCDT" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblRendCorriente1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtRetCDT" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblRendCorriente2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="33" max="32767" attributes="0"/>
+                      <Component id="panBotonesCDT" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JSpinner" name="spinPlazoCDT">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1" maximum="60" minimum="1" numberType="java.lang.Integer" stepSize="1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="txtMontoCDT">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format subtype="0" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblFechCDT">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Fecha de apertura:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblPlazoCDT">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Plazo:"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JPanel" name="panBotonesCDT">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="btnNvaCtaAhorro2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btnCalcIntAhorro2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnGrabCtaAhorro2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnLimpiarTabAhorro2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnSalirTabAhorro2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="31" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnNvaCtaAhorro2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnCalcIntAhorro2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnGrabCtaAhorro2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnLimpiarTabAhorro2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnSalirTabAhorro2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="btnNvaCtaAhorro2">
+                  <Properties>
+                    <Property name="mnemonic" type="int" value="78"/>
+                    <Property name="text" type="java.lang.String" value="Nuevo"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNvaCtaAhorro2ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnCalcIntAhorro2">
+                  <Properties>
+                    <Property name="mnemonic" type="int" value="67"/>
+                    <Property name="text" type="java.lang.String" value="Calcular"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcIntAhorro2ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnGrabCtaAhorro2">
+                  <Properties>
+                    <Property name="mnemonic" type="int" value="71"/>
+                    <Property name="text" type="java.lang.String" value="Grabar"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnLimpiarTabAhorro2">
+                  <Properties>
+                    <Property name="mnemonic" type="int" value="76"/>
+                    <Property name="text" type="java.lang.String" value="Limpiar"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnSalirTabAhorro2">
+                  <Properties>
+                    <Property name="mnemonic" type="int" value="83"/>
+                    <Property name="text" type="java.lang.String" value="Salir"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirTabAhorro2ActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="lblSaldoCorriente1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Monto:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtNumCDT">
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="txtRendCDT">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format subtype="0" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+              </Properties>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="calFechCDT">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblRendCorriente1">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Inter&#xe9;s generado:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblNumCDT">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="N&#xfa;mero del CDT:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblIntCDT">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Inter&#xe9;s pactado:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSpinner" name="spinIntCDT">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1.0" maximum="12.0" minimum="1.0" numberType="java.lang.Double" stepSize="0.1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblRendCorriente2">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Valor retorno:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="txtRetCDT">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format subtype="0" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+              </Properties>
+            </Component>
+          </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="tabTCredito">
           <Properties>

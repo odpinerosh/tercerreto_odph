@@ -70,9 +70,11 @@ public class MainFrame extends javax.swing.JFrame {
         txtNumAhorros = new javax.swing.JTextField();
         calFechAhorros = new com.toedter.calendar.JDateChooser();
         spinIntAhorros = new javax.swing.JSpinner();
-        txtSalAhorros = new javax.swing.JTextField();
+        txtSaldoAhorros = new javax.swing.JFormattedTextField();
+        lblSaldoAhorros1 = new javax.swing.JLabel();
+        txtRendAhorros = new javax.swing.JFormattedTextField();
         tabCtaCorriente = new javax.swing.JPanel();
-        panBotonesAhorro1 = new javax.swing.JPanel();
+        panBotonesCorriente = new javax.swing.JPanel();
         btnNvaCtaAhorro1 = new javax.swing.JButton();
         btnCalcIntAhorro1 = new javax.swing.JButton();
         btnGrabCtaAhorro1 = new javax.swing.JButton();
@@ -81,14 +83,36 @@ public class MainFrame extends javax.swing.JFrame {
         lblNumCorriente = new javax.swing.JLabel();
         spinIntCorriente = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
-        txtSalCorriente = new javax.swing.JTextField();
         lblIntCorriente = new javax.swing.JLabel();
         lblSaldoCorriente = new javax.swing.JLabel();
         txtNumCorriente = new javax.swing.JTextField();
         calFechCorriente = new com.toedter.calendar.JDateChooser();
         lblSobreCorriente = new javax.swing.JLabel();
-        txtSobreCorriente = new javax.swing.JTextField();
+        lblRendCorriente = new javax.swing.JLabel();
+        txtSaldoCorriente = new javax.swing.JFormattedTextField();
+        txtSobreCorriente = new javax.swing.JFormattedTextField();
+        txtRendCorriente = new javax.swing.JFormattedTextField();
         tabCDAT = new javax.swing.JPanel();
+        spinPlazoCDT = new javax.swing.JSpinner();
+        txtMontoCDT = new javax.swing.JFormattedTextField();
+        lblFechCDT = new javax.swing.JLabel();
+        lblPlazoCDT = new javax.swing.JLabel();
+        panBotonesCDT = new javax.swing.JPanel();
+        btnNvaCtaAhorro2 = new javax.swing.JButton();
+        btnCalcIntAhorro2 = new javax.swing.JButton();
+        btnGrabCtaAhorro2 = new javax.swing.JButton();
+        btnLimpiarTabAhorro2 = new javax.swing.JButton();
+        btnSalirTabAhorro2 = new javax.swing.JButton();
+        lblSaldoCorriente1 = new javax.swing.JLabel();
+        txtNumCDT = new javax.swing.JTextField();
+        txtRendCDT = new javax.swing.JFormattedTextField();
+        calFechCDT = new com.toedter.calendar.JDateChooser();
+        lblRendCorriente1 = new javax.swing.JLabel();
+        lblNumCDT = new javax.swing.JLabel();
+        lblIntCDT = new javax.swing.JLabel();
+        spinIntCDT = new javax.swing.JSpinner();
+        lblRendCorriente2 = new javax.swing.JLabel();
+        txtRetCDT = new javax.swing.JFormattedTextField();
         tabTCredito = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -347,31 +371,47 @@ public class MainFrame extends javax.swing.JFrame {
 
         spinIntAhorros.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 4.0d, 0.1d));
 
+        txtSaldoAhorros.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtSaldoAhorros.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+        lblSaldoAhorros1.setText("Interés generado:");
+
+        txtRendAhorros.setEditable(false);
+        txtRendAhorros.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtRendAhorros.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
         javax.swing.GroupLayout tabCtaAhorrosLayout = new javax.swing.GroupLayout(tabCtaAhorros);
         tabCtaAhorros.setLayout(tabCtaAhorrosLayout);
         tabCtaAhorrosLayout.setHorizontalGroup(
             tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(tabCtaAhorrosLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
                 .addGroup(tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panBotonesAhorro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(tabCtaAhorrosLayout.createSequentialGroup()
-                        .addGroup(tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblIntAhorros)
-                            .addComponent(lblNumAhorros)
-                            .addGroup(tabCtaAhorrosLayout.createSequentialGroup()
-                                .addComponent(lblSaldoAhorros)
-                                .addGap(10, 10, 10)))
-                        .addGap(18, 18, 18)
+                        .addGap(53, 53, 53)
                         .addGroup(tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(panBotonesAhorro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(tabCtaAhorrosLayout.createSequentialGroup()
-                                .addComponent(spinIntAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblIntAhorros)
+                                    .addComponent(lblNumAhorros)
+                                    .addGroup(tabCtaAhorrosLayout.createSequentialGroup()
+                                        .addComponent(lblSaldoAhorros)
+                                        .addGap(10, 10, 10)))
                                 .addGap(18, 18, 18)
-                                .addComponent(lblFechAhorros)
-                                .addGap(18, 18, 18)
-                                .addComponent(calFechAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txtNumAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSalAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(tabCtaAhorrosLayout.createSequentialGroup()
+                                        .addComponent(spinIntAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(lblFechAhorros)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(calFechAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txtNumAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSaldoAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(tabCtaAhorrosLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(lblSaldoAhorros1)
+                        .addGap(28, 28, 28)
+                        .addComponent(txtRendAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
         tabCtaAhorrosLayout.setVerticalGroup(
@@ -390,9 +430,13 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(calFechAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSalAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSaldoAhorros))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                    .addComponent(lblSaldoAhorros)
+                    .addComponent(txtSaldoAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(tabCtaAhorrosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSaldoAhorros1)
+                    .addComponent(txtRendAhorros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addComponent(panBotonesAhorro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
@@ -442,11 +486,11 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout panBotonesAhorro1Layout = new javax.swing.GroupLayout(panBotonesAhorro1);
-        panBotonesAhorro1.setLayout(panBotonesAhorro1Layout);
-        panBotonesAhorro1Layout.setHorizontalGroup(
-            panBotonesAhorro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panBotonesAhorro1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panBotonesCorrienteLayout = new javax.swing.GroupLayout(panBotonesCorriente);
+        panBotonesCorriente.setLayout(panBotonesCorrienteLayout);
+        panBotonesCorrienteLayout.setHorizontalGroup(
+            panBotonesCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panBotonesCorrienteLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(btnNvaCtaAhorro1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -459,11 +503,11 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(btnSalirTabAhorro1)
                 .addContainerGap(31, Short.MAX_VALUE))
         );
-        panBotonesAhorro1Layout.setVerticalGroup(
-            panBotonesAhorro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panBotonesAhorro1Layout.createSequentialGroup()
+        panBotonesCorrienteLayout.setVerticalGroup(
+            panBotonesCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panBotonesCorrienteLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panBotonesAhorro1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panBotonesCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNvaCtaAhorro1)
                     .addComponent(btnCalcIntAhorro1)
                     .addComponent(btnGrabCtaAhorro1)
@@ -484,6 +528,18 @@ public class MainFrame extends javax.swing.JFrame {
 
         lblSobreCorriente.setText("Sobregiro:");
 
+        lblRendCorriente.setText("Interés generado:");
+
+        txtSaldoCorriente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtSaldoCorriente.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+        txtSobreCorriente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtSobreCorriente.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+        txtRendCorriente.setEditable(false);
+        txtRendCorriente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
+        txtRendCorriente.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
         javax.swing.GroupLayout tabCtaCorrienteLayout = new javax.swing.GroupLayout(tabCtaCorriente);
         tabCtaCorriente.setLayout(tabCtaCorrienteLayout);
         tabCtaCorrienteLayout.setHorizontalGroup(
@@ -491,27 +547,28 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(tabCtaCorrienteLayout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panBotonesAhorro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(tabCtaCorrienteLayout.createSequentialGroup()
                         .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblIntCorriente)
+                            .addComponent(lblSaldoCorriente)
                             .addComponent(lblNumCorriente)
-                            .addGroup(tabCtaCorrienteLayout.createSequentialGroup()
-                                .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblSobreCorriente)
-                                    .addComponent(lblSaldoCorriente))
-                                .addGap(10, 10, 10)))
-                        .addGap(18, 18, 18)
+                            .addComponent(lblSobreCorriente)
+                            .addComponent(lblRendCorriente)
+                            .addComponent(lblIntCorriente))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tabCtaCorrienteLayout.createSequentialGroup()
-                                .addComponent(spinIntCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel5)
-                                .addGap(18, 18, 18)
-                                .addComponent(calFechCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txtNumCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSalCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSobreCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(tabCtaCorrienteLayout.createSequentialGroup()
+                                .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtSaldoCorriente, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, tabCtaCorrienteLayout.createSequentialGroup()
+                                        .addComponent(spinIntCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(34, 34, 34)
+                                        .addComponent(jLabel5))
+                                    .addComponent(txtRendCorriente, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtSobreCorriente, javax.swing.GroupLayout.Alignment.LEADING))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(calFechCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(panBotonesCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
         tabCtaCorrienteLayout.setVerticalGroup(
@@ -528,32 +585,201 @@ public class MainFrame extends javax.swing.JFrame {
                         .addComponent(spinIntCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel5))
                     .addComponent(calFechCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSalCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSaldoCorriente))
-                .addGap(18, 18, 18)
+                    .addComponent(lblSaldoCorriente)
+                    .addComponent(txtSaldoCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSobreCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSobreCorriente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                .addComponent(panBotonesAhorro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSobreCorriente)
+                    .addComponent(txtSobreCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(tabCtaCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRendCorriente)
+                    .addComponent(txtRendCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(panBotonesCorriente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
 
         tabGroup.addTab("Cta. Corriente", tabCtaCorriente);
 
+        tabCDAT.setBackground(new java.awt.Color(255, 255, 255));
         tabCDAT.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        spinPlazoCDT.setModel(new javax.swing.SpinnerNumberModel(1, 1, 60, 1));
+
+        txtMontoCDT.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtMontoCDT.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+        lblFechCDT.setText("Fecha de apertura:");
+
+        lblPlazoCDT.setText("Plazo:");
+
+        btnNvaCtaAhorro2.setMnemonic('N');
+        btnNvaCtaAhorro2.setText("Nuevo");
+        btnNvaCtaAhorro2.setToolTipText("");
+        btnNvaCtaAhorro2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnNvaCtaAhorro2ActionPerformed(evt);
+            }
+        });
+
+        btnCalcIntAhorro2.setMnemonic('C');
+        btnCalcIntAhorro2.setText("Calcular");
+        btnCalcIntAhorro2.setToolTipText("");
+        btnCalcIntAhorro2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnCalcIntAhorro2ActionPerformed(evt);
+            }
+        });
+
+        btnGrabCtaAhorro2.setMnemonic('G');
+        btnGrabCtaAhorro2.setText("Grabar");
+
+        btnLimpiarTabAhorro2.setMnemonic('L');
+        btnLimpiarTabAhorro2.setText("Limpiar");
+        btnLimpiarTabAhorro2.setToolTipText("");
+
+        btnSalirTabAhorro2.setMnemonic('S');
+        btnSalirTabAhorro2.setText("Salir");
+        btnSalirTabAhorro2.setToolTipText("");
+        btnSalirTabAhorro2.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnSalirTabAhorro2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panBotonesCDTLayout = new javax.swing.GroupLayout(panBotonesCDT);
+        panBotonesCDT.setLayout(panBotonesCDTLayout);
+        panBotonesCDTLayout.setHorizontalGroup(
+            panBotonesCDTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panBotonesCDTLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(btnNvaCtaAhorro2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCalcIntAhorro2)
+                .addGap(18, 18, 18)
+                .addComponent(btnGrabCtaAhorro2)
+                .addGap(18, 18, 18)
+                .addComponent(btnLimpiarTabAhorro2)
+                .addGap(18, 18, 18)
+                .addComponent(btnSalirTabAhorro2)
+                .addContainerGap(31, Short.MAX_VALUE))
+        );
+        panBotonesCDTLayout.setVerticalGroup(
+            panBotonesCDTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panBotonesCDTLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panBotonesCDTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNvaCtaAhorro2)
+                    .addComponent(btnCalcIntAhorro2)
+                    .addComponent(btnGrabCtaAhorro2)
+                    .addComponent(btnLimpiarTabAhorro2)
+                    .addComponent(btnSalirTabAhorro2))
+                .addContainerGap())
+        );
+
+        lblSaldoCorriente1.setText("Monto:");
+
+        txtRendCDT.setEditable(false);
+        txtRendCDT.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtRendCDT.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+
+        lblRendCorriente1.setText("Interés generado:");
+
+        lblNumCDT.setText("Número del CDT:");
+
+        lblIntCDT.setText("Interés pactado:");
+
+        spinIntCDT.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 12.0d, 0.1d));
+
+        lblRendCorriente2.setText("Valor retorno:");
+
+        txtRetCDT.setEditable(false);
+        txtRetCDT.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtRetCDT.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         javax.swing.GroupLayout tabCDATLayout = new javax.swing.GroupLayout(tabCDAT);
         tabCDAT.setLayout(tabCDATLayout);
         tabCDATLayout.setHorizontalGroup(
             tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGroup(tabCDATLayout.createSequentialGroup()
+                .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabCDATLayout.createSequentialGroup()
+                        .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(tabCDATLayout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblNumCDT)
+                                    .addComponent(lblSaldoCorriente1)
+                                    .addComponent(lblPlazoCDT)))
+                            .addGroup(tabCDATLayout.createSequentialGroup()
+                                .addGap(49, 49, 49)
+                                .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblRendCorriente2)
+                                    .addComponent(lblRendCorriente1))))
+                        .addGap(18, 18, 18)
+                        .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtRendCDT, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                            .addComponent(txtMontoCDT, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtRetCDT)))
+                    .addGroup(tabCDATLayout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(spinPlazoCDT, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(77, 77, 77)
+                        .addComponent(lblIntCDT)
+                        .addGap(18, 18, 18)
+                        .addComponent(spinIntCDT, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tabCDATLayout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(txtNumCDT, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblFechCDT)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(calFechCDT, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(tabCDATLayout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addComponent(panBotonesCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(38, Short.MAX_VALUE))
         );
         tabCDATLayout.setVerticalGroup(
             tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 295, Short.MAX_VALUE)
+            .addGroup(tabCDATLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(txtNumCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblFechCDT)
+                        .addComponent(lblNumCDT))
+                    .addComponent(calFechCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(spinPlazoCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblIntCDT)
+                    .addComponent(spinIntCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPlazoCDT))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtMontoCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSaldoCorriente1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRendCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRendCorriente1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(tabCDATLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtRetCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRendCorriente2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(panBotonesCDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19))
         );
 
         tabGroup.addTab("CDAT", tabCDAT);
@@ -750,6 +976,21 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirTabAhorro1ActionPerformed
 
+    private void btnNvaCtaAhorro2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNvaCtaAhorro2ActionPerformed
+    {//GEN-HEADEREND:event_btnNvaCtaAhorro2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnNvaCtaAhorro2ActionPerformed
+
+    private void btnCalcIntAhorro2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCalcIntAhorro2ActionPerformed
+    {//GEN-HEADEREND:event_btnCalcIntAhorro2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCalcIntAhorro2ActionPerformed
+
+    private void btnSalirTabAhorro2ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabAhorro2ActionPerformed
+    {//GEN-HEADEREND:event_btnSalirTabAhorro2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSalirTabAhorro2ActionPerformed
+
     private int funValidaString(String aux) {
         
         if (aux.length() > 0) {
@@ -798,19 +1039,25 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcIntAhorro;
     private javax.swing.JButton btnCalcIntAhorro1;
+    private javax.swing.JButton btnCalcIntAhorro2;
     private javax.swing.JButton btnGrabCtaAhorro;
     private javax.swing.JButton btnGrabCtaAhorro1;
+    private javax.swing.JButton btnGrabCtaAhorro2;
     private javax.swing.JButton btnGrabarCliente;
     private javax.swing.JButton btnLimpiarTabAhorro;
     private javax.swing.JButton btnLimpiarTabAhorro1;
+    private javax.swing.JButton btnLimpiarTabAhorro2;
     private javax.swing.JButton btnLimpiarTabCliente;
     private javax.swing.JButton btnNuevoCliente;
     private javax.swing.JButton btnNvaCtaAhorro;
     private javax.swing.JButton btnNvaCtaAhorro1;
+    private javax.swing.JButton btnNvaCtaAhorro2;
     private javax.swing.JButton btnSalirTabAhorro;
     private javax.swing.JButton btnSalirTabAhorro1;
+    private javax.swing.JButton btnSalirTabAhorro2;
     private javax.swing.JButton btnSalirTabCliente;
     private com.toedter.calendar.JDateChooser calFechAhorros;
+    private com.toedter.calendar.JDateChooser calFechCDT;
     private com.toedter.calendar.JDateChooser calFechCorriente;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblCelular;
@@ -818,19 +1065,31 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblDocumento;
     private javax.swing.JLabel lblFechAhorros;
+    private javax.swing.JLabel lblFechCDT;
     private javax.swing.JLabel lblIntAhorros;
+    private javax.swing.JLabel lblIntCDT;
     private javax.swing.JLabel lblIntCorriente;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNumAhorros;
+    private javax.swing.JLabel lblNumCDT;
     private javax.swing.JLabel lblNumCorriente;
+    private javax.swing.JLabel lblPlazoCDT;
+    private javax.swing.JLabel lblRendCorriente;
+    private javax.swing.JLabel lblRendCorriente1;
+    private javax.swing.JLabel lblRendCorriente2;
     private javax.swing.JLabel lblSaldoAhorros;
+    private javax.swing.JLabel lblSaldoAhorros1;
     private javax.swing.JLabel lblSaldoCorriente;
+    private javax.swing.JLabel lblSaldoCorriente1;
     private javax.swing.JLabel lblSobreCorriente;
     private javax.swing.JPanel panBotonesAhorro;
-    private javax.swing.JPanel panBotonesAhorro1;
+    private javax.swing.JPanel panBotonesCDT;
     private javax.swing.JPanel panBotonesCliente;
+    private javax.swing.JPanel panBotonesCorriente;
     private javax.swing.JSpinner spinIntAhorros;
+    private javax.swing.JSpinner spinIntCDT;
     private javax.swing.JSpinner spinIntCorriente;
+    private javax.swing.JSpinner spinPlazoCDT;
     private javax.swing.JPanel tabCDAT;
     private javax.swing.JPanel tabCliente;
     private javax.swing.JPanel tabCtaAhorros;
@@ -841,11 +1100,17 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtDocumento;
+    private javax.swing.JFormattedTextField txtMontoCDT;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumAhorros;
+    private javax.swing.JTextField txtNumCDT;
     private javax.swing.JTextField txtNumCorriente;
-    private javax.swing.JTextField txtSalAhorros;
-    private javax.swing.JTextField txtSalCorriente;
-    private javax.swing.JTextField txtSobreCorriente;
+    private javax.swing.JFormattedTextField txtRendAhorros;
+    private javax.swing.JFormattedTextField txtRendCDT;
+    private javax.swing.JFormattedTextField txtRendCorriente;
+    private javax.swing.JFormattedTextField txtRetCDT;
+    private javax.swing.JFormattedTextField txtSaldoAhorros;
+    private javax.swing.JFormattedTextField txtSaldoCorriente;
+    private javax.swing.JFormattedTextField txtSobreCorriente;
     // End of variables declaration//GEN-END:variables
 }
