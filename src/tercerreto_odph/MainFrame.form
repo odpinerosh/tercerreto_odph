@@ -648,15 +648,15 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          <Component id="btnNvaCtaAhorro1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNvaCtaCorriente" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnCalcIntAhorro1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCalcIntCorriente" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnGrabCtaAhorro1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnGrabCtaCorriente" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnLimpiarTabAhorro1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnLimpiarTabCorriente" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnSalirTabAhorro1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSalirTabCorriente" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="31" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -666,11 +666,11 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnNvaCtaAhorro1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnCalcIntAhorro1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnGrabCtaAhorro1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnLimpiarTabAhorro1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnSalirTabAhorro1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnNvaCtaCorriente" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnCalcIntCorriente" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnGrabCtaCorriente" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnLimpiarTabCorriente" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnSalirTabCorriente" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -678,47 +678,47 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="btnNvaCtaAhorro1">
+                <Component class="javax.swing.JButton" name="btnNvaCtaCorriente">
                   <Properties>
                     <Property name="mnemonic" type="int" value="78"/>
                     <Property name="text" type="java.lang.String" value="Nuevo"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNvaCtaAhorro1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNvaCtaCorrienteActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnCalcIntAhorro1">
+                <Component class="javax.swing.JButton" name="btnCalcIntCorriente">
                   <Properties>
                     <Property name="mnemonic" type="int" value="67"/>
                     <Property name="text" type="java.lang.String" value="Calcular"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcIntAhorro1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcIntCorrienteActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnGrabCtaAhorro1">
+                <Component class="javax.swing.JButton" name="btnGrabCtaCorriente">
                   <Properties>
                     <Property name="mnemonic" type="int" value="71"/>
                     <Property name="text" type="java.lang.String" value="Grabar"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnLimpiarTabAhorro1">
+                <Component class="javax.swing.JButton" name="btnLimpiarTabCorriente">
                   <Properties>
                     <Property name="mnemonic" type="int" value="76"/>
                     <Property name="text" type="java.lang.String" value="Limpiar"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnSalirTabAhorro1">
+                <Component class="javax.swing.JButton" name="btnSalirTabCorriente">
                   <Properties>
                     <Property name="mnemonic" type="int" value="83"/>
                     <Property name="text" type="java.lang.String" value="Salir"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirTabAhorro1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirTabCorrienteActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -939,15 +939,15 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          <Component id="btnNvaCtaAhorro2" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnNvoCDT" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="btnCalcIntAhorro2" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnCalcIntCDT" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnGrabCtaAhorro2" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnGrabCDT" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnLimpiarTabAhorro2" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnLimpiarTabCDT" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="btnSalirTabAhorro2" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnSalirTabCDT" min="-2" max="-2" attributes="0"/>
                           <EmptySpace pref="31" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -957,11 +957,11 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnNvaCtaAhorro2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnCalcIntAhorro2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnGrabCtaAhorro2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnLimpiarTabAhorro2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnSalirTabAhorro2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnNvoCDT" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnCalcIntCDT" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnGrabCDT" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnLimpiarTabCDT" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnSalirTabCDT" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -969,47 +969,47 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JButton" name="btnNvaCtaAhorro2">
+                <Component class="javax.swing.JButton" name="btnNvoCDT">
                   <Properties>
                     <Property name="mnemonic" type="int" value="78"/>
                     <Property name="text" type="java.lang.String" value="Nuevo"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNvaCtaAhorro2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNvoCDTActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnCalcIntAhorro2">
+                <Component class="javax.swing.JButton" name="btnCalcIntCDT">
                   <Properties>
                     <Property name="mnemonic" type="int" value="67"/>
                     <Property name="text" type="java.lang.String" value="Calcular"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcIntAhorro2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcIntCDTActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnGrabCtaAhorro2">
+                <Component class="javax.swing.JButton" name="btnGrabCDT">
                   <Properties>
                     <Property name="mnemonic" type="int" value="71"/>
                     <Property name="text" type="java.lang.String" value="Grabar"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnLimpiarTabAhorro2">
+                <Component class="javax.swing.JButton" name="btnLimpiarTabCDT">
                   <Properties>
                     <Property name="mnemonic" type="int" value="76"/>
                     <Property name="text" type="java.lang.String" value="Limpiar"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnSalirTabAhorro2">
+                <Component class="javax.swing.JButton" name="btnSalirTabCDT">
                   <Properties>
                     <Property name="mnemonic" type="int" value="83"/>
                     <Property name="text" type="java.lang.String" value="Salir"/>
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirTabAhorro2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirTabCDTActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -1072,6 +1072,9 @@
         </Container>
         <Container class="javax.swing.JPanel" name="tabTCredito">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                 <EtchetBorder/>
@@ -1089,15 +1092,274 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="640" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="363" max="-2" attributes="0"/>
+                              <Component id="lblIntTarj" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Component id="spinIntPactado" min="-2" pref="66" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="44" pref="44" max="-2" attributes="0"/>
+                              <Component id="panBotonesCorriente1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblFechExp" min="-2" pref="149" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
+                                      <Component id="calFechExp" min="-2" pref="134" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblNumTarj" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="txtNumTarj" min="-2" pref="218" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="lblCupoAsignado" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="txtCupoTarj" min="-2" pref="226" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="lblIntGenerado" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="txtIntGenerado" min="-2" pref="224" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="lblCupoUsado" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="txtUsadoTarj" min="-2" pref="226" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                              <Component id="lblFechExp1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="calFechExp1" min="-2" pref="134" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="47" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="295" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtNumTarj" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblNumTarj" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblIntTarj" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="spinIntPactado" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="calFechExp" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblFechExp" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="calFechExp1" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblFechExp1" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblCupoAsignado" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
+                          <Component id="txtCupoTarj" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblCupoUsado" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtUsadoTarj" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="lblIntGenerado" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtIntGenerado" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+                      <Component id="panBotonesCorriente1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="12" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JSpinner" name="spinIntPactado">
+              <Properties>
+                <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
+                  <SpinnerModel initial="1.0" maximum="4.0" minimum="1.0" numberType="java.lang.Double" stepSize="0.1" type="number"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="txtCupoTarj">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format subtype="0" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtCupoTarjActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblIntTarj">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Tasa inter&#xe9;s:"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JPanel" name="panBotonesCorriente1">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="btnNvaCtaCorriente1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btnCalcIntCorriente1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnGrabCtaCorriente1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnLimpiarTabCorriente1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="btnSalirTabCorriente1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="31" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnNvaCtaCorriente1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnCalcIntCorriente1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnGrabCtaCorriente1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnLimpiarTabCorriente1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnSalirTabCorriente1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="btnNvaCtaCorriente1">
+                  <Properties>
+                    <Property name="mnemonic" type="int" value="78"/>
+                    <Property name="text" type="java.lang.String" value="Nuevo"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNvaCtaCorriente1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnCalcIntCorriente1">
+                  <Properties>
+                    <Property name="mnemonic" type="int" value="67"/>
+                    <Property name="text" type="java.lang.String" value="Calcular"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcIntCorriente1ActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnGrabCtaCorriente1">
+                  <Properties>
+                    <Property name="mnemonic" type="int" value="71"/>
+                    <Property name="text" type="java.lang.String" value="Grabar"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnLimpiarTabCorriente1">
+                  <Properties>
+                    <Property name="mnemonic" type="int" value="76"/>
+                    <Property name="text" type="java.lang.String" value="Limpiar"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnSalirTabCorriente1">
+                  <Properties>
+                    <Property name="mnemonic" type="int" value="83"/>
+                    <Property name="text" type="java.lang.String" value="Salir"/>
+                    <Property name="toolTipText" type="java.lang.String" value=""/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSalirTabCorriente1ActionPerformed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="lblCupoAsignado">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="Cupo asignado:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="txtUsadoTarj">
+              <Properties>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format subtype="0" type="0"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="txtNumTarj">
+            </Component>
+            <Component class="javax.swing.JFormattedTextField" name="txtIntGenerado">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+                <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+                  <Format subtype="0" type="4"/>
+                </Property>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblCupoUsado">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="Cupo utilizado:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblIntGenerado">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="Inter&#xe9;s generado:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblNumTarj">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="Tarjeta #:"/>
+              </Properties>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="calFechExp">
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblFechExp">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="Fecha de Expedici&#xf3;n:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="lblFechExp1">
+              <Properties>
+                <Property name="horizontalAlignment" type="int" value="4"/>
+                <Property name="text" type="java.lang.String" value="Fecha de apertura:"/>
+              </Properties>
+            </Component>
+            <Component class="com.toedter.calendar.JDateChooser" name="calFechExp1">
+            </Component>
+          </SubComponents>
         </Container>
       </SubComponents>
     </Container>
