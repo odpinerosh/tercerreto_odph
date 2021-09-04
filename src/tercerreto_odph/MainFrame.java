@@ -338,6 +338,13 @@ public class MainFrame extends javax.swing.JFrame {
         btnLimpiarTabAhorro.setText("Limpiar");
         btnLimpiarTabAhorro.setToolTipText("");
         btnLimpiarTabAhorro.setEnabled(false);
+        btnLimpiarTabAhorro.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnLimpiarTabAhorroActionPerformed(evt);
+            }
+        });
 
         btnSalirTabAhorro.setMnemonic('S');
         btnSalirTabAhorro.setText("Salir");
@@ -1085,8 +1092,6 @@ public class MainFrame extends javax.swing.JFrame {
     private void btnCalcIntAhorroActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCalcIntAhorroActionPerformed
     {//GEN-HEADEREND:event_btnCalcIntAhorroActionPerformed
         // TODO add your handling code here:
-        CuentaAhorros cuentaAhorros = new CuentaAhorros();
-        
         Double inteGenerado;
         
         if(funValidaString(txtNumAhorros.getText()) == 1) {
@@ -1149,18 +1154,34 @@ public class MainFrame extends javax.swing.JFrame {
         
         cuentaAhorros.setNumCuenta(txtNumAhorros.getText());
         cuentaAhorros.setIntCuenta((Double) spinIntAhorros.getValue());
-        cuentaAhorros.setSalCuenta((Double) txtSaldoAhorros.getValue());
+        cuentaAhorros.setSalCuenta(((Number)txtSaldoAhorros.getValue()).doubleValue());
         cuentaAhorros.setFechCuenta(calFechAhorros.getDate());
         
       
         LISTA_AHORROS.add(cuentaAhorros);
         JOptionPane.showMessageDialog(rootPane, "Se grabó la cuenta. Hay " + LISTA_AHORROS.size() + " cuentas registradas.", "Cliente guardado", JOptionPane.INFORMATION_MESSAGE);
 
-        
-        
-      
-         
+        txtNumAhorros.setEnabled(false);
+        txtSaldoAhorros.setEnabled(false);
+        txtRendAhorros.setEnabled(false);
+        spinIntAhorros.setEnabled(false);
+        calFechAhorros.setEnabled(false);
+        btnNvaCtaAhorro.setEnabled(true);
+        btnGrabCtaAhorro.setEnabled(false);
+        btnCalcIntAhorro.setEnabled(false);
+        btnLimpiarTabAhorro.setEnabled(false);
     }//GEN-LAST:event_btnGrabCtaAhorroActionPerformed
+
+    private void btnLimpiarTabAhorroActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnLimpiarTabAhorroActionPerformed
+    {//GEN-HEADEREND:event_btnLimpiarTabAhorroActionPerformed
+        // TODO add your handling code here:
+        txtNumAhorros.setText("");
+        txtSaldoAhorros.setValue(null);
+        txtRendAhorros.setValue(null);
+        spinIntAhorros.setValue(1);
+        calFechAhorros.setDate(null);
+        txtNumAhorros.requestFocus();
+    }//GEN-LAST:event_btnLimpiarTabAhorroActionPerformed
 
     
     
