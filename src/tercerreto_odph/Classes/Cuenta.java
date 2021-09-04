@@ -1,5 +1,7 @@
 package tercerreto_odph.Classes;
 
+import java.util.Date;
+
 /**
  *
  * @author odpinerosh
@@ -7,7 +9,7 @@ package tercerreto_odph.Classes;
 public abstract class Cuenta {
 
     private String numCuenta;
-    private String fechCuenta;
+    private Date fechCuenta;
     private double intCuenta;
     private double salCuenta;
     
@@ -19,11 +21,11 @@ public abstract class Cuenta {
         return this.numCuenta;
     }
     
-    public void setFechCuenta(String fechaCta) {
+    public void setFechCuenta(Date fechaCta) {
         this.fechCuenta = fechaCta;
     }
     
-    public String getFechCuenta() {
+    public Date getFechCuenta() {
         return this.fechCuenta;
     }
     

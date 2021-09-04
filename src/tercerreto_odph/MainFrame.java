@@ -11,6 +11,7 @@ import java.util.regex.*;
 import java.util.*;
 import javax.swing.JOptionPane;
 import tercerreto_odph.Classes.Cliente;
+import tercerreto_odph.Classes.CuentaAhorros;
 
 /**
  *
@@ -23,6 +24,7 @@ public class MainFrame extends javax.swing.JFrame {
      */
     
     ArrayList<Cliente> LISTA_CLIENTES = new ArrayList<>(); 
+    ArrayList<CuentaAhorros> LISTA_AHORROS = new ArrayList<>();
     
     public MainFrame() {
         
@@ -57,12 +59,6 @@ public class MainFrame extends javax.swing.JFrame {
         btnLimpiarTabCliente = new javax.swing.JButton();
         btnSalirTabCliente = new javax.swing.JButton();
         tabCtaAhorros = new javax.swing.JPanel();
-        panBotonesAhorro = new javax.swing.JPanel();
-        btnNvaCtaAhorro = new javax.swing.JButton();
-        btnCalcIntAhorro = new javax.swing.JButton();
-        btnGrabCtaAhorro = new javax.swing.JButton();
-        btnLimpiarTabAhorro = new javax.swing.JButton();
-        btnSalirTabAhorro = new javax.swing.JButton();
         lblNumAhorros = new javax.swing.JLabel();
         lblFechAhorros = new javax.swing.JLabel();
         lblIntAhorros = new javax.swing.JLabel();
@@ -71,8 +67,14 @@ public class MainFrame extends javax.swing.JFrame {
         calFechAhorros = new com.toedter.calendar.JDateChooser();
         spinIntAhorros = new javax.swing.JSpinner();
         txtSaldoAhorros = new javax.swing.JFormattedTextField();
-        lblSaldoAhorros1 = new javax.swing.JLabel();
+        lblIngGenAhorro = new javax.swing.JLabel();
         txtRendAhorros = new javax.swing.JFormattedTextField();
+        panBotonesAhorro = new javax.swing.JPanel();
+        btnNvaCtaAhorro = new javax.swing.JButton();
+        btnCalcIntAhorro = new javax.swing.JButton();
+        btnGrabCtaAhorro = new javax.swing.JButton();
+        btnLimpiarTabAhorro = new javax.swing.JButton();
+        btnSalirTabAhorro = new javax.swing.JButton();
         tabCtaCorriente = new javax.swing.JPanel();
         panBotonesCorriente = new javax.swing.JPanel();
         btnNvaCtaCorriente = new javax.swing.JButton();
@@ -103,26 +105,26 @@ public class MainFrame extends javax.swing.JFrame {
         btnGrabCDT = new javax.swing.JButton();
         btnLimpiarTabCDT = new javax.swing.JButton();
         btnSalirTabCDT = new javax.swing.JButton();
-        lblSaldoCorriente1 = new javax.swing.JLabel();
+        lblMontoCDT = new javax.swing.JLabel();
         txtNumCDT = new javax.swing.JTextField();
         txtRendCDT = new javax.swing.JFormattedTextField();
         calFechCDT = new com.toedter.calendar.JDateChooser();
-        lblRendCorriente1 = new javax.swing.JLabel();
+        lblIntGenCDT = new javax.swing.JLabel();
         lblNumCDT = new javax.swing.JLabel();
         lblIntCDT = new javax.swing.JLabel();
         spinIntCDT = new javax.swing.JSpinner();
-        lblRendCorriente2 = new javax.swing.JLabel();
+        lblRetCDT = new javax.swing.JLabel();
         txtRetCDT = new javax.swing.JFormattedTextField();
         tabTCredito = new javax.swing.JPanel();
         spinIntPactado = new javax.swing.JSpinner();
         txtCupoTarj = new javax.swing.JFormattedTextField();
         lblIntTarj = new javax.swing.JLabel();
-        panBotonesCorriente1 = new javax.swing.JPanel();
-        btnNvaCtaCorriente1 = new javax.swing.JButton();
-        btnCalcIntCorriente1 = new javax.swing.JButton();
-        btnGrabCtaCorriente1 = new javax.swing.JButton();
-        btnLimpiarTabCorriente1 = new javax.swing.JButton();
-        btnSalirTabCorriente1 = new javax.swing.JButton();
+        panBotonesTarj = new javax.swing.JPanel();
+        btnNvaTarj = new javax.swing.JButton();
+        btnCalcTarj = new javax.swing.JButton();
+        btnGrabTarj = new javax.swing.JButton();
+        btnLimpiarTabTarj = new javax.swing.JButton();
+        btnSalirTabTarj = new javax.swing.JButton();
         lblCupoAsignado = new javax.swing.JLabel();
         txtUsadoTarj = new javax.swing.JFormattedTextField();
         txtNumTarj = new javax.swing.JTextField();
@@ -132,8 +134,8 @@ public class MainFrame extends javax.swing.JFrame {
         lblNumTarj = new javax.swing.JLabel();
         calFechExp = new com.toedter.calendar.JDateChooser();
         lblFechExp = new javax.swing.JLabel();
-        lblFechExp1 = new javax.swing.JLabel();
-        calFechExp1 = new com.toedter.calendar.JDateChooser();
+        lblFechVenc = new javax.swing.JLabel();
+        calFechVenc = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Banco");
@@ -143,31 +145,36 @@ public class MainFrame extends javax.swing.JFrame {
 
         tabCliente.setBackground(new java.awt.Color(255, 255, 255));
         tabCliente.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        tabCliente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtDocumento.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtDocumento.setEnabled(false);
         txtDocumento.setName(""); // NOI18N
+        tabCliente.add(txtDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 157, 30));
 
         lblDocumento.setText("Documento:");
+        tabCliente.add(lblDocumento, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, 30));
 
         lblNombre.setText("Nombre:");
+        tabCliente.add(lblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, 30));
 
         lblCorreo.setText("Correo Electrónico:");
+        tabCliente.add(lblCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, 30));
 
         lblCelular.setText("Núm. Celular:");
+        tabCliente.add(lblCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, 30));
 
         lblDireccion.setText("Dirección:");
+        tabCliente.add(lblDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, 30));
 
-        txtNombre.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtNombre.setEnabled(false);
+        tabCliente.add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 361, 30));
 
-        txtCorreo.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtCorreo.setEnabled(false);
+        tabCliente.add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 198, 30));
 
-        txtCelular.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtCelular.setEnabled(false);
+        tabCliente.add(txtCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 160, 30));
 
-        txtDireccion.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtDireccion.setEnabled(false);
         txtDireccion.addActionListener(new java.awt.event.ActionListener()
         {
@@ -176,6 +183,7 @@ public class MainFrame extends javax.swing.JFrame {
                 txtDireccionActionPerformed(evt);
             }
         });
+        tabCliente.add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 361, 30));
 
         btnNuevoCliente.setMnemonic('N');
         btnNuevoCliente.setText("Nuevo");
@@ -226,15 +234,15 @@ public class MainFrame extends javax.swing.JFrame {
         panBotonesClienteLayout.setHorizontalGroup(
             panBotonesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panBotonesClienteLayout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnNuevoCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(32, 32, 32)
                 .addComponent(btnGrabarCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(39, 39, 39)
                 .addComponent(btnLimpiarTabCliente)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                .addGap(32, 32, 32)
                 .addComponent(btnSalirTabCliente)
-                .addGap(46, 46, 46))
+                .addContainerGap())
         );
         panBotonesClienteLayout.setVerticalGroup(
             panBotonesClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,62 +256,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout tabClienteLayout = new javax.swing.GroupLayout(tabCliente);
-        tabCliente.setLayout(tabClienteLayout);
-        tabClienteLayout.setHorizontalGroup(
-            tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabClienteLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panBotonesCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(tabClienteLayout.createSequentialGroup()
-                        .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(tabClienteLayout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblNombre)
-                                    .addComponent(lblDocumento)
-                                    .addComponent(lblDireccion)))
-                            .addComponent(lblCorreo)
-                            .addGroup(tabClienteLayout.createSequentialGroup()
-                                .addGap(33, 33, 33)
-                                .addComponent(lblCelular)))
-                        .addGap(18, 18, 18)
-                        .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(43, Short.MAX_VALUE))
-        );
-        tabClienteLayout.setVerticalGroup(
-            tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(tabClienteLayout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDocumento)
-                    .addComponent(txtDocumento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNombre)
-                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDireccion)
-                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCorreo)
-                    .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(tabClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCelular)
-                    .addComponent(txtCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(panBotonesCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
+        tabCliente.add(panBotonesCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 251, -1, -1));
 
         tabGroup.addTab("Cliente", tabCliente);
         tabCliente.getAccessibleContext().setAccessibleName("tbdCliente");
@@ -311,6 +264,41 @@ public class MainFrame extends javax.swing.JFrame {
         tabCtaAhorros.setBackground(new java.awt.Color(255, 255, 255));
         tabCtaAhorros.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         tabCtaAhorros.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        lblNumAhorros.setText("Cuenta número:");
+        tabCtaAhorros.add(lblNumAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+
+        lblFechAhorros.setText("Fecha de apertura:");
+        tabCtaAhorros.add(lblFechAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
+
+        lblIntAhorros.setText("Interés pactado:");
+        tabCtaAhorros.add(lblIntAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
+
+        lblSaldoAhorros.setText("Saldo:");
+        tabCtaAhorros.add(lblSaldoAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
+
+        txtNumAhorros.setEnabled(false);
+        tabCtaAhorros.add(txtNumAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 36, 218, 30));
+
+        calFechAhorros.setEnabled(false);
+        tabCtaAhorros.add(calFechAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 80, 134, 30));
+
+        spinIntAhorros.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 4.0d, 0.1d));
+        spinIntAhorros.setEnabled(false);
+        tabCtaAhorros.add(spinIntAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 66, 30));
+
+        txtSaldoAhorros.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtSaldoAhorros.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtSaldoAhorros.setEnabled(false);
+        tabCtaAhorros.add(txtSaldoAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 130, 211, 30));
+
+        lblIngGenAhorro.setText("Interés generado:");
+        tabCtaAhorros.add(lblIngGenAhorro, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, -1, -1));
+
+        txtRendAhorros.setEditable(false);
+        txtRendAhorros.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
+        txtRendAhorros.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        tabCtaAhorros.add(txtRendAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 211, 30));
 
         btnNvaCtaAhorro.setMnemonic('N');
         btnNvaCtaAhorro.setText("Nuevo");
@@ -326,6 +314,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnCalcIntAhorro.setMnemonic('C');
         btnCalcIntAhorro.setText("Calcular");
         btnCalcIntAhorro.setToolTipText("");
+        btnCalcIntAhorro.setEnabled(false);
         btnCalcIntAhorro.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -336,10 +325,19 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnGrabCtaAhorro.setMnemonic('G');
         btnGrabCtaAhorro.setText("Grabar");
+        btnGrabCtaAhorro.setEnabled(false);
+        btnGrabCtaAhorro.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnGrabCtaAhorroActionPerformed(evt);
+            }
+        });
 
         btnLimpiarTabAhorro.setMnemonic('L');
         btnLimpiarTabAhorro.setText("Limpiar");
         btnLimpiarTabAhorro.setToolTipText("");
+        btnLimpiarTabAhorro.setEnabled(false);
 
         btnSalirTabAhorro.setMnemonic('S');
         btnSalirTabAhorro.setText("Salir");
@@ -359,15 +357,15 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(panBotonesAhorroLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(btnNvaCtaAhorro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(btnCalcIntAhorro)
                 .addGap(18, 18, 18)
                 .addComponent(btnGrabCtaAhorro)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLimpiarTabAhorro)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalirTabAhorro)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panBotonesAhorroLayout.setVerticalGroup(
             panBotonesAhorroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -375,43 +373,14 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panBotonesAhorroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNvaCtaAhorro)
-                    .addComponent(btnCalcIntAhorro)
                     .addComponent(btnGrabCtaAhorro)
                     .addComponent(btnLimpiarTabAhorro)
-                    .addComponent(btnSalirTabAhorro))
+                    .addComponent(btnSalirTabAhorro)
+                    .addComponent(btnCalcIntAhorro))
                 .addContainerGap())
         );
 
-        tabCtaAhorros.add(panBotonesAhorro, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 266, -1, -1));
-
-        lblNumAhorros.setText("Cuenta número:");
-        tabCtaAhorros.add(lblNumAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 31, -1, -1));
-
-        lblFechAhorros.setText("Fecha de apertura:");
-        tabCtaAhorros.add(lblFechAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 75, -1, -1));
-
-        lblIntAhorros.setText("Interés pactado:");
-        tabCtaAhorros.add(lblIntAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 75, -1, -1));
-
-        lblSaldoAhorros.setText("Saldo:");
-        tabCtaAhorros.add(lblSaldoAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 124, -1, -1));
-        tabCtaAhorros.add(txtNumAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 26, 218, -1));
-        tabCtaAhorros.add(calFechAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 70, 134, -1));
-
-        spinIntAhorros.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 4.0d, 0.1d));
-        tabCtaAhorros.add(spinIntAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 70, 66, -1));
-
-        txtSaldoAhorros.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
-        txtSaldoAhorros.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        tabCtaAhorros.add(txtSaldoAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 119, 211, -1));
-
-        lblSaldoAhorros1.setText("Interés generado:");
-        tabCtaAhorros.add(lblSaldoAhorros1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 168, -1, -1));
-
-        txtRendAhorros.setEditable(false);
-        txtRendAhorros.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
-        txtRendAhorros.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        tabCtaAhorros.add(txtRendAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(174, 163, 211, -1));
+        tabCtaAhorros.add(panBotonesAhorro, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, -1, 40));
 
         tabGroup.addTab("Cta. Ahorros", tabCtaAhorros);
 
@@ -433,6 +402,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnCalcIntCorriente.setMnemonic('C');
         btnCalcIntCorriente.setText("Calcular");
         btnCalcIntCorriente.setToolTipText("");
+        btnCalcIntCorriente.setEnabled(false);
         btnCalcIntCorriente.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -443,10 +413,12 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnGrabCtaCorriente.setMnemonic('G');
         btnGrabCtaCorriente.setText("Grabar");
+        btnGrabCtaCorriente.setEnabled(false);
 
         btnLimpiarTabCorriente.setMnemonic('L');
         btnLimpiarTabCorriente.setText("Limpiar");
         btnLimpiarTabCorriente.setToolTipText("");
+        btnLimpiarTabCorriente.setEnabled(false);
 
         btnSalirTabCorriente.setMnemonic('S');
         btnSalirTabCorriente.setText("Salir");
@@ -474,7 +446,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(btnLimpiarTabCorriente)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalirTabCorriente)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panBotonesCorrienteLayout.setVerticalGroup(
             panBotonesCorrienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -489,43 +461,50 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        tabCtaCorriente.add(panBotonesCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 266, -1, -1));
+        tabCtaCorriente.add(panBotonesCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
 
         lblNumCorriente.setText("Cuenta número:");
-        tabCtaCorriente.add(lblNumCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 31, -1, -1));
+        tabCtaCorriente.add(lblNumCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
 
         spinIntCorriente.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 4.0d, 0.1d));
-        tabCtaCorriente.add(spinIntCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 66, -1));
+        spinIntCorriente.setEnabled(false);
+        tabCtaCorriente.add(spinIntCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 76, 66, 30));
 
         jLabel5.setText("Fecha de apertura:");
-        tabCtaCorriente.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 75, -1, -1));
+        tabCtaCorriente.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
 
         lblIntCorriente.setText("Interés pactado:");
-        tabCtaCorriente.add(lblIntCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 75, -1, -1));
+        tabCtaCorriente.add(lblIntCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
         lblSaldoCorriente.setText("Saldo:");
-        tabCtaCorriente.add(lblSaldoCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 113, -1, -1));
-        tabCtaCorriente.add(txtNumCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 26, 218, -1));
-        tabCtaCorriente.add(calFechCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(397, 70, 134, -1));
+        tabCtaCorriente.add(lblSaldoCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, -1, -1));
+
+        txtNumCorriente.setEnabled(false);
+        tabCtaCorriente.add(txtNumCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 218, 30));
+
+        calFechCorriente.setEnabled(false);
+        tabCtaCorriente.add(calFechCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 76, 134, 30));
 
         lblSobreCorriente.setText("Sobregiro:");
-        tabCtaCorriente.add(lblSobreCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 145, -1, -1));
+        tabCtaCorriente.add(lblSobreCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, -1, -1));
 
         lblRendCorriente.setText("Interés generado:");
-        tabCtaCorriente.add(lblRendCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 183, -1, -1));
+        tabCtaCorriente.add(lblRendCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
         txtSaldoCorriente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtSaldoCorriente.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        tabCtaCorriente.add(txtSaldoCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 108, 215, -1));
+        txtSaldoCorriente.setEnabled(false);
+        tabCtaCorriente.add(txtSaldoCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 215, 30));
 
         txtSobreCorriente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtSobreCorriente.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        tabCtaCorriente.add(txtSobreCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 215, -1));
+        txtSobreCorriente.setEnabled(false);
+        tabCtaCorriente.add(txtSobreCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 215, 30));
 
         txtRendCorriente.setEditable(false);
         txtRendCorriente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
         txtRendCorriente.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        tabCtaCorriente.add(txtRendCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 178, 215, -1));
+        tabCtaCorriente.add(txtRendCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 215, 30));
 
         tabGroup.addTab("Cta. Corriente", tabCtaCorriente);
 
@@ -534,17 +513,19 @@ public class MainFrame extends javax.swing.JFrame {
         tabCDAT.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         spinPlazoCDT.setModel(new javax.swing.SpinnerNumberModel(1, 1, 60, 1));
-        tabCDAT.add(spinPlazoCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 64, 66, -1));
+        spinPlazoCDT.setEnabled(false);
+        tabCDAT.add(spinPlazoCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 66, 30));
 
         txtMontoCDT.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtMontoCDT.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        tabCDAT.add(txtMontoCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 102, 215, -1));
+        txtMontoCDT.setEnabled(false);
+        tabCDAT.add(txtMontoCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 215, 30));
 
         lblFechCDT.setText("Fecha de apertura:");
-        tabCDAT.add(lblFechCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 31, -1, -1));
+        tabCDAT.add(lblFechCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, -1, -1));
 
         lblPlazoCDT.setText("Plazo:");
-        tabCDAT.add(lblPlazoCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(127, 69, -1, -1));
+        tabCDAT.add(lblPlazoCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
 
         btnNvoCDT.setMnemonic('N');
         btnNvoCDT.setText("Nuevo");
@@ -560,6 +541,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnCalcIntCDT.setMnemonic('C');
         btnCalcIntCDT.setText("Calcular");
         btnCalcIntCDT.setToolTipText("");
+        btnCalcIntCDT.setEnabled(false);
         btnCalcIntCDT.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -570,10 +552,12 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnGrabCDT.setMnemonic('G');
         btnGrabCDT.setText("Grabar");
+        btnGrabCDT.setEnabled(false);
 
         btnLimpiarTabCDT.setMnemonic('L');
         btnLimpiarTabCDT.setText("Limpiar");
         btnLimpiarTabCDT.setToolTipText("");
+        btnLimpiarTabCDT.setEnabled(false);
 
         btnSalirTabCDT.setMnemonic('S');
         btnSalirTabCDT.setText("Salir");
@@ -601,7 +585,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(btnLimpiarTabCDT)
                 .addGap(18, 18, 18)
                 .addComponent(btnSalirTabCDT)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panBotonesCDTLayout.setVerticalGroup(
             panBotonesCDTLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -616,37 +600,42 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        tabCDAT.add(panBotonesCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 266, -1, -1));
+        tabCDAT.add(panBotonesCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
 
-        lblSaldoCorriente1.setText("Monto:");
-        tabCDAT.add(lblSaldoCorriente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 107, -1, -1));
-        tabCDAT.add(txtNumCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 26, 115, -1));
+        lblMontoCDT.setText("Monto:");
+        tabCDAT.add(lblMontoCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
+
+        txtNumCDT.setEnabled(false);
+        tabCDAT.add(txtNumCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, 115, 30));
 
         txtRendCDT.setEditable(false);
         txtRendCDT.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtRendCDT.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        tabCDAT.add(txtRendCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 140, 215, -1));
-        tabCDAT.add(calFechCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(442, 26, 134, -1));
+        tabCDAT.add(txtRendCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 215, 30));
 
-        lblRendCorriente1.setText("Interés generado:");
-        tabCDAT.add(lblRendCorriente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 145, -1, -1));
+        calFechCDT.setEnabled(false);
+        tabCDAT.add(calFechCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 134, 30));
+
+        lblIntGenCDT.setText("Interés generado:");
+        tabCDAT.add(lblIntGenCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
 
         lblNumCDT.setText("Número del CDT:");
-        tabCDAT.add(lblNumCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(56, 31, -1, -1));
+        tabCDAT.add(lblNumCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
         lblIntCDT.setText("Interés pactado:");
-        tabCDAT.add(lblIntCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 69, -1, -1));
+        tabCDAT.add(lblIntCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 90, -1, -1));
 
         spinIntCDT.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 12.0d, 0.1d));
-        tabCDAT.add(spinIntCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(444, 64, 66, -1));
+        spinIntCDT.setEnabled(false);
+        tabCDAT.add(spinIntCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, 66, 30));
 
-        lblRendCorriente2.setText("Valor retorno:");
-        tabCDAT.add(lblRendCorriente2, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 183, -1, -1));
+        lblRetCDT.setText("Valor retorno:");
+        tabCDAT.add(lblRetCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
 
         txtRetCDT.setEditable(false);
         txtRetCDT.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtRetCDT.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        tabCDAT.add(txtRetCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 178, 215, -1));
+        tabCDAT.add(txtRetCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 215, 30));
 
         tabGroup.addTab("CDAT", tabCDAT);
 
@@ -655,10 +644,12 @@ public class MainFrame extends javax.swing.JFrame {
         tabTCredito.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         spinIntPactado.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 4.0d, 0.1d));
-        tabTCredito.add(spinIntPactado, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 20, 66, -1));
+        spinIntPactado.setEnabled(false);
+        tabTCredito.add(spinIntPactado, new org.netbeans.lib.awtextra.AbsoluteConstraints(493, 20, 66, 30));
 
         txtCupoTarj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtCupoTarj.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtCupoTarj.setEnabled(false);
         txtCupoTarj.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
@@ -666,82 +657,85 @@ public class MainFrame extends javax.swing.JFrame {
                 txtCupoTarjActionPerformed(evt);
             }
         });
-        tabTCredito.add(txtCupoTarj, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 113, 200, -1));
+        tabTCredito.add(txtCupoTarj, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 113, 200, 30));
 
         lblIntTarj.setText("Tasa interés:");
         tabTCredito.add(lblIntTarj, new org.netbeans.lib.awtextra.AbsoluteConstraints(401, 25, -1, -1));
 
-        btnNvaCtaCorriente1.setMnemonic('N');
-        btnNvaCtaCorriente1.setText("Nuevo");
-        btnNvaCtaCorriente1.setToolTipText("");
-        btnNvaCtaCorriente1.addActionListener(new java.awt.event.ActionListener()
+        btnNvaTarj.setMnemonic('N');
+        btnNvaTarj.setText("Nuevo");
+        btnNvaTarj.setToolTipText("");
+        btnNvaTarj.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                btnNvaCtaCorriente1ActionPerformed(evt);
+                btnNvaTarjActionPerformed(evt);
             }
         });
 
-        btnCalcIntCorriente1.setMnemonic('C');
-        btnCalcIntCorriente1.setText("Calcular");
-        btnCalcIntCorriente1.setToolTipText("");
-        btnCalcIntCorriente1.addActionListener(new java.awt.event.ActionListener()
+        btnCalcTarj.setMnemonic('C');
+        btnCalcTarj.setText("Calcular");
+        btnCalcTarj.setToolTipText("");
+        btnCalcTarj.setEnabled(false);
+        btnCalcTarj.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                btnCalcIntCorriente1ActionPerformed(evt);
+                btnCalcTarjActionPerformed(evt);
             }
         });
 
-        btnGrabCtaCorriente1.setMnemonic('G');
-        btnGrabCtaCorriente1.setText("Grabar");
+        btnGrabTarj.setMnemonic('G');
+        btnGrabTarj.setText("Grabar");
+        btnGrabTarj.setEnabled(false);
 
-        btnLimpiarTabCorriente1.setMnemonic('L');
-        btnLimpiarTabCorriente1.setText("Limpiar");
-        btnLimpiarTabCorriente1.setToolTipText("");
+        btnLimpiarTabTarj.setMnemonic('L');
+        btnLimpiarTabTarj.setText("Limpiar");
+        btnLimpiarTabTarj.setToolTipText("");
+        btnLimpiarTabTarj.setEnabled(false);
 
-        btnSalirTabCorriente1.setMnemonic('S');
-        btnSalirTabCorriente1.setText("Salir");
-        btnSalirTabCorriente1.setToolTipText("");
-        btnSalirTabCorriente1.addActionListener(new java.awt.event.ActionListener()
+        btnSalirTabTarj.setMnemonic('S');
+        btnSalirTabTarj.setText("Salir");
+        btnSalirTabTarj.setToolTipText("");
+        btnSalirTabTarj.addActionListener(new java.awt.event.ActionListener()
         {
             public void actionPerformed(java.awt.event.ActionEvent evt)
             {
-                btnSalirTabCorriente1ActionPerformed(evt);
+                btnSalirTabTarjActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout panBotonesCorriente1Layout = new javax.swing.GroupLayout(panBotonesCorriente1);
-        panBotonesCorriente1.setLayout(panBotonesCorriente1Layout);
-        panBotonesCorriente1Layout.setHorizontalGroup(
-            panBotonesCorriente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panBotonesCorriente1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panBotonesTarjLayout = new javax.swing.GroupLayout(panBotonesTarj);
+        panBotonesTarj.setLayout(panBotonesTarjLayout);
+        panBotonesTarjLayout.setHorizontalGroup(
+            panBotonesTarjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panBotonesTarjLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(btnNvaCtaCorriente1)
+                .addComponent(btnNvaTarj)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCalcIntCorriente1)
+                .addComponent(btnCalcTarj)
                 .addGap(18, 18, 18)
-                .addComponent(btnGrabCtaCorriente1)
+                .addComponent(btnGrabTarj)
                 .addGap(18, 18, 18)
-                .addComponent(btnLimpiarTabCorriente1)
+                .addComponent(btnLimpiarTabTarj)
                 .addGap(18, 18, 18)
-                .addComponent(btnSalirTabCorriente1)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addComponent(btnSalirTabTarj)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        panBotonesCorriente1Layout.setVerticalGroup(
-            panBotonesCorriente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panBotonesCorriente1Layout.createSequentialGroup()
+        panBotonesTarjLayout.setVerticalGroup(
+            panBotonesTarjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panBotonesTarjLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panBotonesCorriente1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNvaCtaCorriente1)
-                    .addComponent(btnCalcIntCorriente1)
-                    .addComponent(btnGrabCtaCorriente1)
-                    .addComponent(btnLimpiarTabCorriente1)
-                    .addComponent(btnSalirTabCorriente1))
+                .addGroup(panBotonesTarjLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnNvaTarj)
+                    .addComponent(btnCalcTarj)
+                    .addComponent(btnGrabTarj)
+                    .addComponent(btnLimpiarTabTarj)
+                    .addComponent(btnSalirTabTarj))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabTCredito.add(panBotonesCorriente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 268, -1, -1));
+        tabTCredito.add(panBotonesTarj, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, -1));
 
         lblCupoAsignado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCupoAsignado.setText("Cupo asignado:");
@@ -749,13 +743,16 @@ public class MainFrame extends javax.swing.JFrame {
 
         txtUsadoTarj.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtUsadoTarj.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        tabTCredito.add(txtUsadoTarj, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 157, 200, -1));
-        tabTCredito.add(txtNumTarj, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 218, -1));
+        txtUsadoTarj.setEnabled(false);
+        tabTCredito.add(txtUsadoTarj, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 157, 200, 30));
+
+        txtNumTarj.setEnabled(false);
+        tabTCredito.add(txtNumTarj, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 218, 30));
 
         txtIntGenerado.setEditable(false);
         txtIntGenerado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
         txtIntGenerado.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        tabTCredito.add(txtIntGenerado, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 201, 200, -1));
+        tabTCredito.add(txtIntGenerado, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 201, 200, 30));
 
         lblCupoUsado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblCupoUsado.setText("Cupo utilizado:");
@@ -768,16 +765,20 @@ public class MainFrame extends javax.swing.JFrame {
         lblNumTarj.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblNumTarj.setText("Tarjeta #:");
         tabTCredito.add(lblNumTarj, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 25, -1, -1));
-        tabTCredito.add(calFechExp, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 58, 134, -1));
+
+        calFechExp.setEnabled(false);
+        tabTCredito.add(calFechExp, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 134, 30));
 
         lblFechExp.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblFechExp.setText("Expedición:");
         tabTCredito.add(lblFechExp, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 58, 96, 26));
 
-        lblFechExp1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblFechExp1.setText("Vencimiento:");
-        tabTCredito.add(lblFechExp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 58, -1, 26));
-        tabTCredito.add(calFechExp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 58, 134, -1));
+        lblFechVenc.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblFechVenc.setText("Vencimiento:");
+        tabTCredito.add(lblFechVenc, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 58, -1, 26));
+
+        calFechVenc.setEnabled(false);
+        tabTCredito.add(calFechVenc, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 58, 134, 30));
 
         tabGroup.addTab("Tj. Crédito", tabTCredito);
 
@@ -786,156 +787,130 @@ public class MainFrame extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(tabGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGap(16, 16, 16)
+                .addComponent(tabGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addComponent(tabGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 378, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(tabGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtDireccionActionPerformed
-    {//GEN-HEADEREND:event_txtDireccionActionPerformed
+    private void btnSalirTabTarjActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabTarjActionPerformed
+    {//GEN-HEADEREND:event_btnSalirTabTarjActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDireccionActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirTabTarjActionPerformed
 
-    private void btnNuevoClienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNuevoClienteActionPerformed
-    {//GEN-HEADEREND:event_btnNuevoClienteActionPerformed
-        // Recorrer los componentes de la pestaña y activarlos si son
-        // de tipo JTextField
-        for (Component comp : tabCliente.getComponents()) {
-            if (comp instanceof javax.swing.JTextField) {
-                ((javax.swing.JTextField)comp).setEnabled(true);
-                ((javax.swing.JTextField)comp).setText("");
-            }
+    private void btnCalcTarjActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCalcTarjActionPerformed
+    {//GEN-HEADEREND:event_btnCalcTarjActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCalcTarjActionPerformed
+
+    private void btnNvaTarjActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNvaTarjActionPerformed
+    {//GEN-HEADEREND:event_btnNvaTarjActionPerformed
+        // TODO add your handling code here:
+        txtNumTarj.setEnabled(true);
+        txtNumTarj.requestFocus();
+        spinIntPactado.setEnabled(true);
+        calFechExp.setEnabled(true);
+        calFechVenc.setEnabled(true);
+        txtCupoTarj.setEnabled(true);
+        txtUsadoTarj.setEnabled(true);
+        
+        btnNvaTarj.setEnabled(false);
+        btnCalcTarj.setEnabled(true);
+        btnGrabTarj.setEnabled(true);
+        btnLimpiarTabTarj.setEnabled(true);
+        
+    }//GEN-LAST:event_btnNvaTarjActionPerformed
+
+    private void txtCupoTarjActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtCupoTarjActionPerformed
+    {//GEN-HEADEREND:event_txtCupoTarjActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCupoTarjActionPerformed
+
+    private void btnSalirTabCDTActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabCDTActionPerformed
+    {//GEN-HEADEREND:event_btnSalirTabCDTActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirTabCDTActionPerformed
+
+    private void btnCalcIntCDTActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCalcIntCDTActionPerformed
+    {//GEN-HEADEREND:event_btnCalcIntCDTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCalcIntCDTActionPerformed
+
+    private void btnNvoCDTActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNvoCDTActionPerformed
+    {//GEN-HEADEREND:event_btnNvoCDTActionPerformed
+        // TODO add your handling code here:
+        txtNumCDT.setEnabled(true);
+        txtNumCDT.requestFocus();
+        calFechCDT.setEnabled(true);
+        spinPlazoCDT.setEnabled(true);
+        spinIntCDT.setEnabled(true);
+        txtMontoCDT.setEnabled(true);
+        
+        btnNvoCDT.setEnabled(false);
+        btnCalcIntCDT.setEnabled(true);
+        btnGrabCDT.setEnabled(true);
+        btnLimpiarTabCDT.setEnabled(true);
+        
+        
+        
+    }//GEN-LAST:event_btnNvoCDTActionPerformed
+
+    private void btnSalirTabCorrienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabCorrienteActionPerformed
+    {//GEN-HEADEREND:event_btnSalirTabCorrienteActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirTabCorrienteActionPerformed
+
+    private void btnCalcIntCorrienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCalcIntCorrienteActionPerformed
+    {//GEN-HEADEREND:event_btnCalcIntCorrienteActionPerformed
+        // TODO add your handling code here:
+        double rendCorriente = 0;
+        
+        if(funValidaString(txtNumCorriente.getText()) == 1) {
+            JOptionPane.showMessageDialog(rootPane, "El número de la cuenta no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtNumCorriente.requestFocus();
+            return;
         }
         
-        //Pone el foco en el Documento del cliente
-        txtDocumento.requestFocus();
-        btnNuevoCliente.setEnabled(false);
-        btnGrabarCliente.setEnabled(true);
-        btnLimpiarTabCliente.setEnabled(true);
-    }//GEN-LAST:event_btnNuevoClienteActionPerformed
-
-    private void btnSalirTabClienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabClienteActionPerformed
-    {//GEN-HEADEREND:event_btnSalirTabClienteActionPerformed
-        // TODO add your handling code here:
-      System.exit(0);
-    }//GEN-LAST:event_btnSalirTabClienteActionPerformed
-
-    private void btnGrabarClienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnGrabarClienteActionPerformed
-    {//GEN-HEADEREND:event_btnGrabarClienteActionPerformed
-        // TODO add your handling code here:
-        String nomCliente, docCliente, mailCliente, celCliente, dirCliente;
-      
-        Cliente objCliente = new Cliente();
-        
-        if (funValidaString(docCliente = txtDocumento.getText()) == 1) {
-            JOptionPane.showMessageDialog(rootPane, "El documento del Cliente no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
-            txtDocumento.requestFocus();
+       if(funValidaString(txtSaldoCorriente.getText()) == 1) {
+            JOptionPane.showMessageDialog(rootPane, "El saldo de la cuenta no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtSaldoCorriente.requestFocus();
             return;
-        } else {
-            objCliente.setDocCliente(docCliente);
-        }
-
-        if (funValidaString(nomCliente = txtNombre.getText()) == 1) {
-            JOptionPane.showMessageDialog(rootPane, "El nombre del Cliente no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
-            txtNombre.requestFocus();
-            return;
-        } else {
-            objCliente.setNomCliente(nomCliente);
-        }        
-
-        //objCliente.setDirCliente(txtDireccion.getText());
-        if (funValidaString(dirCliente = txtDireccion.getText()) == 1) {
-            JOptionPane.showMessageDialog(rootPane, "La dirección del Cliente no puede ser nula.","¡Atención!", JOptionPane.ERROR_MESSAGE);
-            txtDireccion.requestFocus();
-            return;
-        } else {
-            objCliente.setDirCliente(dirCliente);
         }        
        
-        //objCliente.setEmailCliente(txtCorreo.getText());
-        if (funValidaString(mailCliente = txtCorreo.getText()) == 1) {
-            JOptionPane.showMessageDialog(rootPane, "El correo del Cliente no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
-            txtCorreo.requestFocus();
-            return;
-        } else {
-            //Validar el formato del correo electrónico con RegEx.
-            Pattern pat = Pattern.compile("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
-            Matcher mat = pat.matcher(mailCliente);                                                                           
-            if (!mat.matches()) {
-                JOptionPane.showMessageDialog(rootPane, "El formato del correo no es correcto.","¡Atención!", JOptionPane.ERROR_MESSAGE);                                                                       
-                txtCorreo.requestFocus();
-                txtCorreo.selectAll();
-                return;
-            } else {
-                objCliente.setEmailCliente(mailCliente);
-            }
-        }
-        
-        //objCliente.setCelCliente(txtCelular.getText());
-        if (funValidaString(celCliente = txtCelular.getText()) == 1) {
-            JOptionPane.showMessageDialog(rootPane, "El celular del Cliente no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
-            txtCelular.requestFocus();
-            return;
-        } else {
-            objCliente.setCelCliente(celCliente);
-        }
-        
-        LISTA_CLIENTES.add(objCliente);
-        JOptionPane.showMessageDialog(rootPane, "Se grabó el cliente. Hay " + LISTA_CLIENTES.size() + " clientes registrados.", "Cliente guardado", JOptionPane.INFORMATION_MESSAGE);
-        
-        for (Component comp : tabCliente.getComponents()) {
-            if (comp instanceof javax.swing.JTextField) {
-                ((javax.swing.JTextField)comp).setEnabled(false);
-            } else {
-                if (comp instanceof javax.swing.JPanel) {
-                    for (Component panComp : panBotonesCliente.getComponents()) {
-                        if (((javax.swing.JButton)panComp).getText() == "Nuevo" || ((javax.swing.JButton)panComp).getText() == "Salir") {
-                            ((javax.swing.JButton)panComp).setEnabled(true);
-                        } else {
-                            ((javax.swing.JButton)panComp).setEnabled(false);
-                        }
-                    }
-                }
-            }
-        }
+       
         
         
-        
-    }//GEN-LAST:event_btnGrabarClienteActionPerformed
+    }//GEN-LAST:event_btnCalcIntCorrienteActionPerformed
 
-    private void btnLimpiarTabClienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnLimpiarTabClienteActionPerformed
-    {//GEN-HEADEREND:event_btnLimpiarTabClienteActionPerformed
+    private void btnNvaCtaCorrienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNvaCtaCorrienteActionPerformed
+    {//GEN-HEADEREND:event_btnNvaCtaCorrienteActionPerformed
         // TODO add your handling code here:
-        // Recorrer los componentes de la pestaña y vaciarlos si son
-        // de tipo JTextField
-        for (Component comp : tabCliente.getComponents()) {
-            if (comp instanceof javax.swing.JTextField) {
-                ((javax.swing.JTextField)comp).setText("");
-            }
-        }
-        //Pone el foco en el Documento del cliente
-        txtDocumento.requestFocus();
-    }//GEN-LAST:event_btnLimpiarTabClienteActionPerformed
-
-    private void btnNvaCtaAhorroActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNvaCtaAhorroActionPerformed
-    {//GEN-HEADEREND:event_btnNvaCtaAhorroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNvaCtaAhorroActionPerformed
-
-    private void btnCalcIntAhorroActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCalcIntAhorroActionPerformed
-    {//GEN-HEADEREND:event_btnCalcIntAhorroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCalcIntAhorroActionPerformed
+        txtNumCorriente.setEnabled(true);
+        txtNumCorriente.requestFocus();
+        calFechCorriente.setEnabled(true);
+        txtSaldoCorriente.setEnabled(true);
+        txtSobreCorriente.setEnabled(true);
+        txtRendCorriente.setEnabled(true);
+        spinIntCorriente.setEnabled(true);
+        
+        btnNvaCtaCorriente.setEnabled(false);
+        btnCalcIntCorriente.setEnabled(true);
+        btnGrabCtaCorriente.setEnabled(true);
+        btnLimpiarTabCorriente.setEnabled(true);
+        
+    }//GEN-LAST:event_btnNvaCtaCorrienteActionPerformed
 
     private void btnSalirTabAhorroActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabAhorroActionPerformed
     {//GEN-HEADEREND:event_btnSalirTabAhorroActionPerformed
@@ -943,56 +918,252 @@ public class MainFrame extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btnSalirTabAhorroActionPerformed
 
-    private void btnNvaCtaCorrienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNvaCtaCorrienteActionPerformed
-    {//GEN-HEADEREND:event_btnNvaCtaCorrienteActionPerformed
+    private void btnNvaCtaAhorroActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNvaCtaAhorroActionPerformed
+    {//GEN-HEADEREND:event_btnNvaCtaAhorroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnNvaCtaCorrienteActionPerformed
+        txtNumAhorros.setEnabled(true);
+        txtNumAhorros.requestFocus();
+        calFechAhorros.setEnabled(true);
+        spinIntAhorros.setEnabled(true);
+        txtSaldoAhorros.setEnabled(true);
+        lblSaldoAhorros.setEnabled(true);
 
-    private void btnCalcIntCorrienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCalcIntCorrienteActionPerformed
-    {//GEN-HEADEREND:event_btnCalcIntCorrienteActionPerformed
+        btnNvaCtaAhorro.setEnabled(false);
+        btnCalcIntAhorro.setEnabled(true);
+        btnGrabCtaAhorro.setEnabled(true);
+        btnLimpiarTabAhorro.setEnabled(true);
+    }//GEN-LAST:event_btnNvaCtaAhorroActionPerformed
+
+    private void btnSalirTabClienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabClienteActionPerformed
+    {//GEN-HEADEREND:event_btnSalirTabClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCalcIntCorrienteActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirTabClienteActionPerformed
 
-    private void btnSalirTabCorrienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabCorrienteActionPerformed
-    {//GEN-HEADEREND:event_btnSalirTabCorrienteActionPerformed
+    private void btnLimpiarTabClienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnLimpiarTabClienteActionPerformed
+    {//GEN-HEADEREND:event_btnLimpiarTabClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalirTabCorrienteActionPerformed
+        // Recorrer los componentes de la pestaña y vaciarlos si son
+        // de tipo JTextField
+        for (Component comp : tabCliente.getComponents())
+        {
+            if (comp instanceof javax.swing.JTextField)
+            {
+                ((javax.swing.JTextField)comp).setText("");
+            }
+        }
+        //Pone el foco en el Documento del cliente
+        txtDocumento.requestFocus();
+    }//GEN-LAST:event_btnLimpiarTabClienteActionPerformed
 
-    private void btnNvoCDTActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNvoCDTActionPerformed
-    {//GEN-HEADEREND:event_btnNvoCDTActionPerformed
+    private void btnGrabarClienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnGrabarClienteActionPerformed
+    {//GEN-HEADEREND:event_btnGrabarClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnNvoCDTActionPerformed
+        String nomCliente, docCliente, mailCliente, celCliente, dirCliente;
 
-    private void btnCalcIntCDTActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCalcIntCDTActionPerformed
-    {//GEN-HEADEREND:event_btnCalcIntCDTActionPerformed
+        Cliente objCliente = new Cliente();
+
+        if (funValidaString(docCliente = txtDocumento.getText()) == 1)
+        {
+            JOptionPane.showMessageDialog(rootPane, "El documento del Cliente no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtDocumento.requestFocus();
+            return;
+        } else
+        {
+            objCliente.setDocCliente(docCliente);
+        }
+
+        if (funValidaString(nomCliente = txtNombre.getText()) == 1)
+        {
+            JOptionPane.showMessageDialog(rootPane, "El nombre del Cliente no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtNombre.requestFocus();
+            return;
+            
+        } else
+        {
+            objCliente.setNomCliente(nomCliente);
+        }
+
+        //objCliente.setDirCliente(txtDireccion.getText());
+        if (funValidaString(dirCliente = txtDireccion.getText()) == 1)
+        {
+            JOptionPane.showMessageDialog(rootPane, "La dirección del Cliente no puede ser nula.","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtDireccion.requestFocus();
+            return;
+        } else
+        {
+            objCliente.setDirCliente(dirCliente);
+        }
+
+        //objCliente.setEmailCliente(txtCorreo.getText());
+        if (funValidaString(mailCliente = txtCorreo.getText()) == 1)
+        {
+            JOptionPane.showMessageDialog(rootPane, "El correo del Cliente no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtCorreo.requestFocus();
+            return;
+        } else
+        {
+            //Validar el formato del correo electrónico con RegEx.
+            Pattern pat = Pattern.compile("^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$");
+            Matcher mat = pat.matcher(mailCliente);
+            if (!mat.matches())
+            {
+                JOptionPane.showMessageDialog(rootPane, "El formato del correo no es correcto.","¡Atención!", JOptionPane.ERROR_MESSAGE);
+                txtCorreo.requestFocus();
+                txtCorreo.selectAll();
+                return;
+            } else
+            {
+                objCliente.setEmailCliente(mailCliente);
+            }
+        }
+
+        //objCliente.setCelCliente(txtCelular.getText());
+        if (funValidaString(celCliente = txtCelular.getText()) == 1)
+        {
+            JOptionPane.showMessageDialog(rootPane, "El celular del Cliente no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtCelular.requestFocus();
+            return;
+        } else
+        {
+            objCliente.setCelCliente(celCliente);
+        }
+
+        LISTA_CLIENTES.add(objCliente);
+        JOptionPane.showMessageDialog(rootPane, "Se grabó el cliente. Hay " + LISTA_CLIENTES.size() + " clientes registrados.", "Cliente guardado", JOptionPane.INFORMATION_MESSAGE);
+
+        for (Component comp : tabCliente.getComponents())
+        {
+            if (comp instanceof javax.swing.JTextField)
+            {
+                ((javax.swing.JTextField)comp).setEnabled(false);
+            } else
+            {
+                if (comp instanceof javax.swing.JPanel)
+                {
+                    for (Component panComp : panBotonesCliente.getComponents())
+                    {
+                        if (((javax.swing.JButton)panComp).getText() == "Nuevo" || ((javax.swing.JButton)panComp).getText() == "Salir")
+                        {
+                            ((javax.swing.JButton)panComp).setEnabled(true);
+                        } else
+                        {
+                            ((javax.swing.JButton)panComp).setEnabled(false);
+                        }
+                    }
+                }
+            }
+        }
+
+    }//GEN-LAST:event_btnGrabarClienteActionPerformed
+
+    private void btnNuevoClienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNuevoClienteActionPerformed
+    {//GEN-HEADEREND:event_btnNuevoClienteActionPerformed
+        // Recorrer los componentes de la pestaña y activarlos si son
+        // de tipo JTextField
+        for (Component comp : tabCliente.getComponents())
+        {
+            if (comp instanceof javax.swing.JTextField)
+            {
+                ((javax.swing.JTextField)comp).setEnabled(true);
+                ((javax.swing.JTextField)comp).setText("");
+            }
+        }
+
+        //Pone el foco en el Documento del cliente
+        txtDocumento.requestFocus();
+        btnNuevoCliente.setEnabled(false);
+        btnGrabarCliente.setEnabled(true);
+        btnLimpiarTabCliente.setEnabled(true);
+    }//GEN-LAST:event_btnNuevoClienteActionPerformed
+
+    private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtDireccionActionPerformed
+    {//GEN-HEADEREND:event_txtDireccionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnCalcIntCDTActionPerformed
+    }//GEN-LAST:event_txtDireccionActionPerformed
 
-    private void btnSalirTabCDTActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabCDTActionPerformed
-    {//GEN-HEADEREND:event_btnSalirTabCDTActionPerformed
+    private void btnCalcIntAhorroActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCalcIntAhorroActionPerformed
+    {//GEN-HEADEREND:event_btnCalcIntAhorroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalirTabCDTActionPerformed
+        CuentaAhorros cuentaAhorros = new CuentaAhorros();
+        
+        Double inteGenerado;
+        
+        if(funValidaString(txtNumAhorros.getText()) == 1) {
+            JOptionPane.showMessageDialog(rootPane, "El número de la cuenta no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtNumAhorros.requestFocus();
+            return;
+        }
+        
+        if(funValidaString(txtSaldoAhorros.getText()) == 1) {
+            JOptionPane.showMessageDialog(rootPane, "El saldo de la cuenta no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtSaldoAhorros.requestFocus();
+            return;
+        }
+        
+        if(calFechAhorros.getDate() == null) {
+            JOptionPane.showMessageDialog(rootPane, "La fecha de apertura es requerida", "¡Atención!", JOptionPane.ERROR_MESSAGE);
+            calFechAhorros.requestFocus();
+        }
+        
+        //
+        
+        inteGenerado = ((double) spinIntAhorros.getValue()) * ((Number)txtSaldoAhorros.getValue()).doubleValue() / 100;
+        txtRendAhorros.setValue(inteGenerado);
+        
+        
+        
+          
+    }//GEN-LAST:event_btnCalcIntAhorroActionPerformed
 
-    private void btnSalirTabCorriente1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabCorriente1ActionPerformed
-    {//GEN-HEADEREND:event_btnSalirTabCorriente1ActionPerformed
+    private void btnGrabCtaAhorroActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnGrabCtaAhorroActionPerformed
+    {//GEN-HEADEREND:event_btnGrabCtaAhorroActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalirTabCorriente1ActionPerformed
+        
+        CuentaAhorros cuentaAhorros = new CuentaAhorros();
+        
+        if(funValidaString(txtNumAhorros.getText()) == 1) {
+            JOptionPane.showMessageDialog(rootPane, "El número de la cuenta no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtNumAhorros.requestFocus();
+            return;
+        }
+        
+        if(funValidaString(txtSaldoAhorros.getText()) == 1) {
+            JOptionPane.showMessageDialog(rootPane, "El saldo de la cuenta no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtSaldoAhorros.requestFocus();
+            return;
+        }
+        
+        if(calFechAhorros.getDate() == null) {
+            JOptionPane.showMessageDialog(rootPane, "La fecha de apertura es requerida", "¡Atención!", JOptionPane.ERROR_MESSAGE);
+            calFechAhorros.requestFocus();
+            return;
+        }
+        
+        if(spinIntAhorros.getValue() == null) {
+            JOptionPane.showMessageDialog(rootPane, "Se requiere el Interés pactado", "¡Atención!", JOptionPane.ERROR_MESSAGE);
+            spinIntAhorros.requestFocus();
+            return;
+        }
+      
+        
+        cuentaAhorros.setNumCuenta(txtNumAhorros.getText());
+        cuentaAhorros.setIntCuenta((Double) spinIntAhorros.getValue());
+        cuentaAhorros.setSalCuenta((Double) txtSaldoAhorros.getValue());
+        cuentaAhorros.setFechCuenta(calFechAhorros.getDate());
+        
+      
+        LISTA_AHORROS.add(cuentaAhorros);
+        JOptionPane.showMessageDialog(rootPane, "Se grabó la cuenta. Hay " + LISTA_AHORROS.size() + " cuentas registradas.", "Cliente guardado", JOptionPane.INFORMATION_MESSAGE);
 
-    private void btnCalcIntCorriente1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCalcIntCorriente1ActionPerformed
-    {//GEN-HEADEREND:event_btnCalcIntCorriente1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCalcIntCorriente1ActionPerformed
+        
+        
+      
+         
+    }//GEN-LAST:event_btnGrabCtaAhorroActionPerformed
 
-    private void btnNvaCtaCorriente1ActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNvaCtaCorriente1ActionPerformed
-    {//GEN-HEADEREND:event_btnNvaCtaCorriente1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnNvaCtaCorriente1ActionPerformed
-
-    private void txtCupoTarjActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_txtCupoTarjActionPerformed
-    {//GEN-HEADEREND:event_txtCupoTarjActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCupoTarjActionPerformed
-
+    
+    
     private int funValidaString(String aux) {
         
         if (aux.length() > 0) {
@@ -1042,32 +1213,32 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnCalcIntAhorro;
     private javax.swing.JButton btnCalcIntCDT;
     private javax.swing.JButton btnCalcIntCorriente;
-    private javax.swing.JButton btnCalcIntCorriente1;
+    private javax.swing.JButton btnCalcTarj;
     private javax.swing.JButton btnGrabCDT;
     private javax.swing.JButton btnGrabCtaAhorro;
     private javax.swing.JButton btnGrabCtaCorriente;
-    private javax.swing.JButton btnGrabCtaCorriente1;
+    private javax.swing.JButton btnGrabTarj;
     private javax.swing.JButton btnGrabarCliente;
     private javax.swing.JButton btnLimpiarTabAhorro;
     private javax.swing.JButton btnLimpiarTabCDT;
     private javax.swing.JButton btnLimpiarTabCliente;
     private javax.swing.JButton btnLimpiarTabCorriente;
-    private javax.swing.JButton btnLimpiarTabCorriente1;
+    private javax.swing.JButton btnLimpiarTabTarj;
     private javax.swing.JButton btnNuevoCliente;
     private javax.swing.JButton btnNvaCtaAhorro;
     private javax.swing.JButton btnNvaCtaCorriente;
-    private javax.swing.JButton btnNvaCtaCorriente1;
+    private javax.swing.JButton btnNvaTarj;
     private javax.swing.JButton btnNvoCDT;
     private javax.swing.JButton btnSalirTabAhorro;
     private javax.swing.JButton btnSalirTabCDT;
     private javax.swing.JButton btnSalirTabCliente;
     private javax.swing.JButton btnSalirTabCorriente;
-    private javax.swing.JButton btnSalirTabCorriente1;
+    private javax.swing.JButton btnSalirTabTarj;
     private com.toedter.calendar.JDateChooser calFechAhorros;
     private com.toedter.calendar.JDateChooser calFechCDT;
     private com.toedter.calendar.JDateChooser calFechCorriente;
     private com.toedter.calendar.JDateChooser calFechExp;
-    private com.toedter.calendar.JDateChooser calFechExp1;
+    private com.toedter.calendar.JDateChooser calFechVenc;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblCelular;
     private javax.swing.JLabel lblCorreo;
@@ -1078,12 +1249,15 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblFechAhorros;
     private javax.swing.JLabel lblFechCDT;
     private javax.swing.JLabel lblFechExp;
-    private javax.swing.JLabel lblFechExp1;
+    private javax.swing.JLabel lblFechVenc;
+    private javax.swing.JLabel lblIngGenAhorro;
     private javax.swing.JLabel lblIntAhorros;
     private javax.swing.JLabel lblIntCDT;
     private javax.swing.JLabel lblIntCorriente;
+    private javax.swing.JLabel lblIntGenCDT;
     private javax.swing.JLabel lblIntGenerado;
     private javax.swing.JLabel lblIntTarj;
+    private javax.swing.JLabel lblMontoCDT;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblNumAhorros;
     private javax.swing.JLabel lblNumCDT;
@@ -1091,18 +1265,15 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblNumTarj;
     private javax.swing.JLabel lblPlazoCDT;
     private javax.swing.JLabel lblRendCorriente;
-    private javax.swing.JLabel lblRendCorriente1;
-    private javax.swing.JLabel lblRendCorriente2;
+    private javax.swing.JLabel lblRetCDT;
     private javax.swing.JLabel lblSaldoAhorros;
-    private javax.swing.JLabel lblSaldoAhorros1;
     private javax.swing.JLabel lblSaldoCorriente;
-    private javax.swing.JLabel lblSaldoCorriente1;
     private javax.swing.JLabel lblSobreCorriente;
     private javax.swing.JPanel panBotonesAhorro;
     private javax.swing.JPanel panBotonesCDT;
     private javax.swing.JPanel panBotonesCliente;
     private javax.swing.JPanel panBotonesCorriente;
-    private javax.swing.JPanel panBotonesCorriente1;
+    private javax.swing.JPanel panBotonesTarj;
     private javax.swing.JSpinner spinIntAhorros;
     private javax.swing.JSpinner spinIntCDT;
     private javax.swing.JSpinner spinIntCorriente;

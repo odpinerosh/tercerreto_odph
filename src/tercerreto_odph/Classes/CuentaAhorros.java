@@ -13,7 +13,7 @@ public class CuentaAhorros extends Cuenta {
 
     @Override
     public double calcInteres() {
-      return 0;  
+      return (this.getIntCuenta() * this.getSalCuenta()) / 100;  
     }
     
 }
