@@ -5,10 +5,12 @@
  */
 package tercerreto_odph;
 
+import java.awt.Color;
 import java.awt.Component;
 import java.text.SimpleDateFormat;
 import java.util.regex.*;
 import java.util.*;
+import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
 import tercerreto_odph.Classes.Cliente;
 import tercerreto_odph.Classes.CuentaAhorros;
@@ -426,6 +428,13 @@ public class MainFrame extends javax.swing.JFrame {
         btnLimpiarTabCorriente.setText("Limpiar");
         btnLimpiarTabCorriente.setToolTipText("");
         btnLimpiarTabCorriente.setEnabled(false);
+        btnLimpiarTabCorriente.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnLimpiarTabCorrienteActionPerformed(evt);
+            }
+        });
 
         btnSalirTabCorriente.setMnemonic('S');
         btnSalirTabCorriente.setText("Salir");
@@ -473,7 +482,7 @@ public class MainFrame extends javax.swing.JFrame {
         lblNumCorriente.setText("Cuenta número:");
         tabCtaCorriente.add(lblNumCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 40, -1, -1));
 
-        spinIntCorriente.setModel(new javax.swing.SpinnerNumberModel(1.0d, 1.0d, 4.0d, 0.1d));
+        spinIntCorriente.setModel(new javax.swing.SpinnerNumberModel(0.1d, 0.1d, 4.0d, 0.1d));
         spinIntCorriente.setEnabled(false);
         tabCtaCorriente.add(spinIntCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 76, 66, 30));
 
@@ -505,6 +514,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         txtSobreCorriente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtSobreCorriente.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtSobreCorriente.setText("0");
         txtSobreCorriente.setEnabled(false);
         tabCtaCorriente.add(txtSobreCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 215, 30));
 
@@ -885,18 +895,36 @@ public class MainFrame extends javax.swing.JFrame {
         double rendCorriente = 0;
         
         if(funValidaString(txtNumCorriente.getText()) == 1) {
-            JOptionPane.showMessageDialog(rootPane, "El número de la cuenta no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(rootPane, "Se requiere el número de la cuenta","¡Atención!", JOptionPane.ERROR_MESSAGE);
             txtNumCorriente.requestFocus();
             return;
         }
         
-       if(funValidaString(txtSaldoCorriente.getText()) == 1) {
-            JOptionPane.showMessageDialog(rootPane, "El saldo de la cuenta no puede ser nulo.","¡Atención!", JOptionPane.ERROR_MESSAGE);
+       if(txtSaldoCorriente.getValue() == null) {
+            JOptionPane.showMessageDialog(rootPane, "El saldo de la cuenta es requerido.","¡Atención!", JOptionPane.ERROR_MESSAGE);
             txtSaldoCorriente.requestFocus();
             return;
-        }        
+        }
        
-       
+        if(calFechCorriente.getDate() == null) {
+            JOptionPane.showMessageDialog(rootPane, "La fecha de apertura es requerida", "¡Atención!", JOptionPane.ERROR_MESSAGE);
+            calFechCorriente.requestFocus();
+        }
+        
+        if(txtSobreCorriente.getValue() == null) {
+            txtSobreCorriente.setValue(0);
+        }
+        
+        if( ((Number)txtSobreCorriente.getValue()).intValue() == 0 ) {
+            rendCorriente = (((Number)spinIntCorriente.getValue()).doubleValue()) * ((Number)txtSaldoCorriente.getValue()).doubleValue() / 100;
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Cuenta en Sobregiro. Se cobrará un interés del 3%", "¡Atención!", JOptionPane.INFORMATION_MESSAGE);
+            rendCorriente = ((Number)txtSobreCorriente.getValue()).doubleValue() * -3/100;
+            txtRendCorriente.setForeground(Color.red);
+            
+        }
+        
+        txtRendCorriente.setValue(rendCorriente);
         
         
     }//GEN-LAST:event_btnCalcIntCorrienteActionPerformed
@@ -917,6 +945,15 @@ public class MainFrame extends javax.swing.JFrame {
         btnGrabCtaCorriente.setEnabled(true);
         btnLimpiarTabCorriente.setEnabled(true);
         
+        txtNumCorriente.setText("");
+        spinIntCorriente.setValue(1);
+        calFechCorriente.setDate(null);
+        txtSaldoCorriente.setValue(null);
+        txtSobreCorriente.setValue(null);
+        txtRendCorriente.setValue(null);
+        txtRendCorriente.setForeground(Color.BLACK);
+        
+        
     }//GEN-LAST:event_btnNvaCtaCorrienteActionPerformed
 
     private void btnSalirTabAhorroActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabAhorroActionPerformed
@@ -933,12 +970,18 @@ public class MainFrame extends javax.swing.JFrame {
         calFechAhorros.setEnabled(true);
         spinIntAhorros.setEnabled(true);
         txtSaldoAhorros.setEnabled(true);
-        lblSaldoAhorros.setEnabled(true);
 
         btnNvaCtaAhorro.setEnabled(false);
         btnCalcIntAhorro.setEnabled(true);
         btnGrabCtaAhorro.setEnabled(true);
         btnLimpiarTabAhorro.setEnabled(true);
+        
+        txtNumAhorros.setText("");
+        txtSaldoAhorros.setValue(null);
+        txtRendAhorros.setValue(null);
+        spinIntAhorros.setValue(1);
+        calFechAhorros.setDate(null);
+
     }//GEN-LAST:event_btnNvaCtaAhorroActionPerformed
 
     private void btnSalirTabClienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabClienteActionPerformed
@@ -1182,6 +1225,18 @@ public class MainFrame extends javax.swing.JFrame {
         calFechAhorros.setDate(null);
         txtNumAhorros.requestFocus();
     }//GEN-LAST:event_btnLimpiarTabAhorroActionPerformed
+
+    private void btnLimpiarTabCorrienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnLimpiarTabCorrienteActionPerformed
+    {//GEN-HEADEREND:event_btnLimpiarTabCorrienteActionPerformed
+        // TODO add your handling code here:
+        txtNumCorriente.setText("");
+        txtNumCorriente.requestFocus();
+        spinIntCorriente.setValue(1);
+        calFechCorriente.setDate(null);
+        txtSaldoCorriente.setValue(null);
+        txtSobreCorriente.setValue(null);
+        txtRendCorriente.setValue(null);
+    }//GEN-LAST:event_btnLimpiarTabCorrienteActionPerformed
 
     
     
