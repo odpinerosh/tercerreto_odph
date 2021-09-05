@@ -799,6 +799,7 @@ public class MainFrame extends javax.swing.JFrame {
         txtIntGenerado.setEditable(false);
         txtIntGenerado.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
         txtIntGenerado.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtIntGenerado.setEnabled(false);
         tabTCredito.add(txtIntGenerado, new org.netbeans.lib.awtextra.AbsoluteConstraints(214, 201, 200, 30));
 
         lblCupoUsado.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
