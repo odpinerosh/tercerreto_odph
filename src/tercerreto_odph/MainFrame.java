@@ -16,6 +16,7 @@ import tercerreto_odph.Classes.CDT;
 import tercerreto_odph.Classes.Cliente;
 import tercerreto_odph.Classes.CuentaAhorros;
 import tercerreto_odph.Classes.CuentaCorriente;
+import tercerreto_odph.Classes.Tarjeta;
 
 /**
  *
@@ -31,6 +32,7 @@ public class MainFrame extends javax.swing.JFrame {
     ArrayList<CuentaAhorros> LISTA_AHORROS = new ArrayList<>();
     ArrayList<CuentaCorriente> LISTA_CORRIENTE = new ArrayList<>();
     ArrayList<CDT> LISTA_CDT = new ArrayList<>();
+    ArrayList<Tarjeta> LISTA_TARJETA = new ArrayList<>();
     
     
     public MainFrame() {
@@ -735,11 +737,25 @@ public class MainFrame extends javax.swing.JFrame {
         btnGrabTarj.setMnemonic('G');
         btnGrabTarj.setText("Grabar");
         btnGrabTarj.setEnabled(false);
+        btnGrabTarj.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnGrabTarjActionPerformed(evt);
+            }
+        });
 
         btnLimpiarTabTarj.setMnemonic('L');
         btnLimpiarTabTarj.setText("Limpiar");
         btnLimpiarTabTarj.setToolTipText("");
         btnLimpiarTabTarj.setEnabled(false);
+        btnLimpiarTabTarj.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnLimpiarTabTarjActionPerformed(evt);
+            }
+        });
 
         btnSalirTabTarj.setMnemonic('S');
         btnSalirTabTarj.setText("Salir");
@@ -859,6 +875,68 @@ public class MainFrame extends javax.swing.JFrame {
     private void btnCalcTarjActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCalcTarjActionPerformed
     {//GEN-HEADEREND:event_btnCalcTarjActionPerformed
         // TODO add your handling code here:
+      
+        SimpleDateFormat sdformat = new SimpleDateFormat("dd-MM-yyyy");
+        Double interesGenerado;
+        
+        if(funValidaString(txtNumTarj.getText()) == 1) {
+            JOptionPane.showMessageDialog(rootPane, "El número de la Tarjeta es requerido","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtNumTarj.requestFocus();
+            txtNumTarj.selectAll();
+            return;
+        }
+        
+        if(calFechExp.getDate() == null) {
+            JOptionPane.showMessageDialog(rootPane, "Se requiere la fecha de expedición de la Tarjeta","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            calFechExp.requestFocus();
+            return;
+        }
+        
+        if(calFechVenc.getDate() == null) {
+            JOptionPane.showMessageDialog(rootPane, "Se requiere la fecha de vencimiento de la Tarjeta","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            calFechExp.requestFocus();
+            return;
+        }
+        
+        if (calFechVenc.getDate().before(calFechExp.getDate())) {
+            JOptionPane.showMessageDialog(rootPane, "La fecha de vencimiento debe ser posterior a la fecha de expedición","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            calFechExp.requestFocus();
+            return;
+        }
+        
+        
+        
+        if (sdformat.format(calFechVenc.getDate()).equals(sdformat.format(calFechExp.getDate()))) {
+            JOptionPane.showMessageDialog(rootPane, "La fecha de vencimiento no puede ser igual a la fecha de expedición","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            calFechExp.requestFocus();
+            return;
+        }
+        
+        if (txtCupoTarj.getValue() == null || ((Number)txtCupoTarj.getValue()).intValue() <= 0){
+            JOptionPane.showMessageDialog(rootPane, "El cupo de la tarjeta no puede ser menor o igual a cero","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtCupoTarj.requestFocus();
+            txtCupoTarj.selectAll();
+            return;
+        }
+        
+        if (txtUsadoTarj.getValue() == null || ((Number)txtUsadoTarj.getValue()).intValue() < 0){
+            JOptionPane.showMessageDialog(rootPane, "El cupo utilizado debe ser mayor o igual a cero","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtUsadoTarj.requestFocus();
+            txtUsadoTarj.selectAll();
+            return;
+        }
+        
+        if (((Number)txtUsadoTarj.getValue()).doubleValue() > ((Number)txtCupoTarj.getValue()).doubleValue()){
+            JOptionPane.showMessageDialog(rootPane, "El cupo utilizado no puede ser mayor al cupo asignado","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtUsadoTarj.requestFocus();
+            txtUsadoTarj.selectAll();
+            return;
+        }
+        
+        interesGenerado = ((Number)txtUsadoTarj.getValue()).doubleValue() * ((Number)spinIntPactado.getValue()).doubleValue() /100;
+        txtIntGenerado.setValue(interesGenerado);
+        
+        
     }//GEN-LAST:event_btnCalcTarjActionPerformed
 
     private void btnNvaTarjActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNvaTarjActionPerformed
@@ -871,6 +949,15 @@ public class MainFrame extends javax.swing.JFrame {
         calFechVenc.setEnabled(true);
         txtCupoTarj.setEnabled(true);
         txtUsadoTarj.setEnabled(true);
+        
+        txtNumTarj.setText("");
+        spinIntPactado.setValue(1);
+        calFechExp.setDate(null);
+        calFechVenc.setDate(null);
+        txtCupoTarj.setValue(0);
+        txtUsadoTarj.setValue(0);
+        txtIntGenerado.setValue(0);
+        
         
         btnNvaTarj.setEnabled(false);
         btnCalcTarj.setEnabled(true);
@@ -942,9 +1029,9 @@ public class MainFrame extends javax.swing.JFrame {
         calFechCDT.setDate(null);
         spinPlazoCDT.setValue(1);
         spinIntCDT.setValue(1);
-        txtMontoCDT.setValue(null);
-        txtRendCDT.setValue(null);
-        txtRetCDT.setValue(null);
+        txtMontoCDT.setValue(0);
+        txtRendCDT.setValue(0);
+        txtRetCDT.setValue(0);
     }//GEN-LAST:event_btnNvoCDTActionPerformed
 
     private void btnSalirTabCorrienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabCorrienteActionPerformed
@@ -1012,9 +1099,9 @@ public class MainFrame extends javax.swing.JFrame {
         txtNumCorriente.setText("");
         spinIntCorriente.setValue(1);
         calFechCorriente.setDate(null);
-        txtSaldoCorriente.setValue(null);
-        txtSobreCorriente.setValue(null);
-        txtRendCorriente.setValue(null);
+        txtSaldoCorriente.setValue(0);
+        txtSobreCorriente.setValue(0);
+        txtRendCorriente.setValue(0);
         txtRendCorriente.setForeground(Color.BLACK);
         
         
@@ -1042,8 +1129,8 @@ public class MainFrame extends javax.swing.JFrame {
         btnLimpiarTabAhorro.setEnabled(true);
         
         txtNumAhorros.setText("");
-        txtSaldoAhorros.setValue(null);
-        txtRendAhorros.setValue(null);
+        txtSaldoAhorros.setValue(0);
+        txtRendAhorros.setValue(0);
         spinIntAhorros.setValue(1);
         calFechAhorros.setDate(null);
 
@@ -1267,7 +1354,7 @@ public class MainFrame extends javax.swing.JFrame {
         
       
         LISTA_AHORROS.add(cuentaAhorros);
-        JOptionPane.showMessageDialog(rootPane, "Se grabó la cuenta. Hay " + LISTA_AHORROS.size() + " cuentas registradas.", "Cliente guardado", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(rootPane, "Se grabó la cuenta. Hay " + LISTA_AHORROS.size() + " cuentas registradas.", "Cuenta guardada", JOptionPane.INFORMATION_MESSAGE);
 
         txtNumAhorros.setEnabled(false);
         txtSaldoAhorros.setEnabled(false);
@@ -1284,8 +1371,8 @@ public class MainFrame extends javax.swing.JFrame {
     {//GEN-HEADEREND:event_btnLimpiarTabAhorroActionPerformed
         // TODO add your handling code here:
         txtNumAhorros.setText("");
-        txtSaldoAhorros.setValue(null);
-        txtRendAhorros.setValue(null);
+        txtSaldoAhorros.setValue(0);
+        txtRendAhorros.setValue(0);
         spinIntAhorros.setValue(1);
         calFechAhorros.setDate(null);
         txtNumAhorros.requestFocus();
@@ -1298,9 +1385,9 @@ public class MainFrame extends javax.swing.JFrame {
         txtNumCorriente.requestFocus();
         spinIntCorriente.setValue(1);
         calFechCorriente.setDate(null);
-        txtSaldoCorriente.setValue(null);
-        txtSobreCorriente.setValue(null);
-        txtRendCorriente.setValue(null);
+        txtSaldoCorriente.setValue(0);
+        txtSobreCorriente.setValue(0);
+        txtRendCorriente.setValue(0);
     }//GEN-LAST:event_btnLimpiarTabCorrienteActionPerformed
 
     private void btnLimpiarTabCDTActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnLimpiarTabCDTActionPerformed
@@ -1311,9 +1398,9 @@ public class MainFrame extends javax.swing.JFrame {
         calFechCDT.setDate(null);
         spinPlazoCDT.setValue(1);
         spinIntCDT.setValue(1);
-        txtMontoCDT.setValue(null);
-        txtRendCDT.setValue(null);
-        txtRetCDT.setValue(null);
+        txtMontoCDT.setValue(0);
+        txtRendCDT.setValue(0);
+        txtRetCDT.setValue(0);
     }//GEN-LAST:event_btnLimpiarTabCDTActionPerformed
 
     private void btnGrabCDTActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnGrabCDTActionPerformed
@@ -1346,7 +1433,7 @@ public class MainFrame extends javax.swing.JFrame {
         Titulo.setPlazoCDT(((Number)spinPlazoCDT.getValue()).intValue());
         
         LISTA_CDT.add(Titulo);
-        JOptionPane.showMessageDialog(rootPane, "Se grabó el título. Hay " + LISTA_CDT.size() + " títulos registrados.", "Cliente guardado", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(rootPane, "Se grabó el título. Hay " + LISTA_CDT.size() + " títulos registrados.", "Título guardado", JOptionPane.INFORMATION_MESSAGE);
 
         txtNumCDT.setEnabled(false);
         calFechCDT.setEnabled(false);
@@ -1397,7 +1484,7 @@ public class MainFrame extends javax.swing.JFrame {
         cuentaCorriente.setIntCuenta(((Number)spinIntCorriente.getValue()).doubleValue());
         
         LISTA_CORRIENTE.add(cuentaCorriente);
-        JOptionPane.showMessageDialog(rootPane, "Se grabó la cuenta corriente. Hay " + LISTA_CORRIENTE.size() + " cuentas registradas.", "Cliente guardado", JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(rootPane, "Se grabó la cuenta corriente. Hay " + LISTA_CORRIENTE.size() + " cuentas registradas.", "Cuenta guardada", JOptionPane.INFORMATION_MESSAGE);
         
         txtNumCorriente.setEnabled(false);
         txtNumCorriente.requestFocus();
@@ -1413,6 +1500,99 @@ public class MainFrame extends javax.swing.JFrame {
         btnLimpiarTabCorriente.setEnabled(false);
       
     }//GEN-LAST:event_btnGrabCtaCorrienteActionPerformed
+
+    private void btnLimpiarTabTarjActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnLimpiarTabTarjActionPerformed
+    {//GEN-HEADEREND:event_btnLimpiarTabTarjActionPerformed
+        // TODO add your handling code here:
+        
+        txtNumTarj.setText("");
+        spinIntPactado.setValue(1);
+        calFechExp.setDate(null);
+        calFechVenc.setDate(null);
+        txtCupoTarj.setValue(0);
+        txtUsadoTarj.setValue(0);
+        txtIntGenerado.setValue(0);
+        
+    }//GEN-LAST:event_btnLimpiarTabTarjActionPerformed
+
+    private void btnGrabTarjActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnGrabTarjActionPerformed
+    {//GEN-HEADEREND:event_btnGrabTarjActionPerformed
+        // TODO add your handling code here:
+        Tarjeta tarjCredito = new Tarjeta();
+        SimpleDateFormat sdformat = new SimpleDateFormat("dd-MM-yyyy");
+        
+        if(funValidaString(txtNumTarj.getText()) == 1) {
+            JOptionPane.showMessageDialog(rootPane, "El número de la Tarjeta es requerido","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtNumTarj.requestFocus();
+            txtNumTarj.selectAll();
+            return;
+        }
+        
+        if(calFechExp.getDate() == null) {
+            JOptionPane.showMessageDialog(rootPane, "Se requiere la fecha de expedición de la Tarjeta","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            calFechExp.requestFocus();
+            return;
+        }
+        
+        if(calFechVenc.getDate() == null) {
+            JOptionPane.showMessageDialog(rootPane, "Se requiere la fecha de vencimiento de la Tarjeta","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            calFechExp.requestFocus();
+            return;
+        }
+        
+        if (calFechVenc.getDate().before(calFechExp.getDate())) {
+            JOptionPane.showMessageDialog(rootPane, "La fecha de vencimiento debe ser posterior a la fecha de expedición","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            calFechExp.requestFocus();
+            return;
+        }
+        
+        if (sdformat.format(calFechVenc.getDate()).equals(sdformat.format(calFechExp.getDate()))) {
+            JOptionPane.showMessageDialog(rootPane, "La fecha de vencimiento no puede ser igual a la fecha de expedición","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            calFechExp.requestFocus();
+            return;
+        }
+        
+        if (txtCupoTarj.getValue() == null || ((Number)txtCupoTarj.getValue()).intValue() <= 0){
+            JOptionPane.showMessageDialog(rootPane, "El cupo de la tarjeta no puede ser menor o igual a cero","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtCupoTarj.requestFocus();
+            txtCupoTarj.selectAll();
+            return;
+        }
+        
+        if (txtUsadoTarj.getValue() == null || ((Number)txtUsadoTarj.getValue()).intValue() < 0){
+            JOptionPane.showMessageDialog(rootPane, "El cupo utilizado debe ser mayor o igual a cero","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtUsadoTarj.requestFocus();
+            txtUsadoTarj.selectAll();
+            return;
+        }
+        
+        tarjCredito.setNumCuenta(txtNumTarj.getText());
+        tarjCredito.setCupoUsado(((Number)txtUsadoTarj.getValue()).doubleValue());
+        tarjCredito.setFechCuenta(calFechExp.getDate());
+        tarjCredito.setFechaVence(calFechVenc.getDate());
+        tarjCredito.setIntCuenta(((Number)spinIntPactado.getValue()).doubleValue());
+        tarjCredito.setSalCuenta(((Number)txtCupoTarj.getValue()).doubleValue());
+        
+        LISTA_TARJETA.add(tarjCredito);
+        JOptionPane.showMessageDialog(rootPane, "Se grabó la tarjeta. Hay " + LISTA_TARJETA.size() + " tarjetas registradas.", "Tarjeta guardada", JOptionPane.INFORMATION_MESSAGE);
+
+        
+        
+        txtNumTarj.setEnabled(false);
+        spinIntPactado.setEnabled(false);
+        calFechExp.setEnabled(false);
+        calFechVenc.setEnabled(false);
+        txtCupoTarj.setEnabled(false);
+        txtUsadoTarj.setEnabled(false);
+        txtIntGenerado.setEnabled(false);
+        
+        btnNvaTarj.setEnabled(true);
+        btnCalcTarj.setEnabled(false);
+        btnGrabTarj.setEnabled(false);
+        btnLimpiarTabTarj.setEnabled(false);
+        
+        
+    }//GEN-LAST:event_btnGrabTarjActionPerformed
 
     
     
