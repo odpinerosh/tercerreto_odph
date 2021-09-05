@@ -1,5 +1,7 @@
 package tercerreto_odph.Classes;
 
+import java.util.Date;
+
 /**
  *
  * @author odpinerosh
@@ -7,7 +9,7 @@ package tercerreto_odph.Classes;
 public class CDT {
 
     private String numCDT;
-    private String fechCDT;
+    private Date fechCDT;
     private double intCDT, montoCDT, intMensualCDT, valRetorno;
     private int plazoCDT;
     
@@ -19,11 +21,11 @@ public class CDT {
         return this.numCDT;
     }
     
-    public void setFechCDT(String fechaCDT) {
+    public void setFechCDT(Date fechaCDT) {
         this.fechCDT = fechaCDT;
     }
     
-    public String getFechCDT() {
+    public Date getFechCDT() {
         return this.fechCDT;
     }
     

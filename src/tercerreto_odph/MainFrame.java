@@ -12,8 +12,10 @@ import java.util.regex.*;
 import java.util.*;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
+import tercerreto_odph.Classes.CDT;
 import tercerreto_odph.Classes.Cliente;
 import tercerreto_odph.Classes.CuentaAhorros;
+import tercerreto_odph.Classes.CuentaCorriente;
 
 /**
  *
@@ -27,6 +29,9 @@ public class MainFrame extends javax.swing.JFrame {
     
     ArrayList<Cliente> LISTA_CLIENTES = new ArrayList<>(); 
     ArrayList<CuentaAhorros> LISTA_AHORROS = new ArrayList<>();
+    ArrayList<CuentaCorriente> LISTA_CORRIENTE = new ArrayList<>();
+    ArrayList<CDT> LISTA_CDT = new ArrayList<>();
+    
     
     public MainFrame() {
         
@@ -300,6 +305,7 @@ public class MainFrame extends javax.swing.JFrame {
         txtRendAhorros.setEditable(false);
         txtRendAhorros.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtRendAhorros.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtRendAhorros.setEnabled(false);
         tabCtaAhorros.add(txtRendAhorros, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 211, 30));
 
         btnNvaCtaAhorro.setMnemonic('N');
@@ -423,6 +429,13 @@ public class MainFrame extends javax.swing.JFrame {
         btnGrabCtaCorriente.setMnemonic('G');
         btnGrabCtaCorriente.setText("Grabar");
         btnGrabCtaCorriente.setEnabled(false);
+        btnGrabCtaCorriente.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnGrabCtaCorrienteActionPerformed(evt);
+            }
+        });
 
         btnLimpiarTabCorriente.setMnemonic('L');
         btnLimpiarTabCorriente.setText("Limpiar");
@@ -521,6 +534,7 @@ public class MainFrame extends javax.swing.JFrame {
         txtRendCorriente.setEditable(false);
         txtRendCorriente.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getCurrencyInstance())));
         txtRendCorriente.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtRendCorriente.setEnabled(false);
         tabCtaCorriente.add(txtRendCorriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, 215, 30));
 
         tabGroup.addTab("Cta. Corriente", tabCtaCorriente);
@@ -570,11 +584,25 @@ public class MainFrame extends javax.swing.JFrame {
         btnGrabCDT.setMnemonic('G');
         btnGrabCDT.setText("Grabar");
         btnGrabCDT.setEnabled(false);
+        btnGrabCDT.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnGrabCDTActionPerformed(evt);
+            }
+        });
 
         btnLimpiarTabCDT.setMnemonic('L');
         btnLimpiarTabCDT.setText("Limpiar");
         btnLimpiarTabCDT.setToolTipText("");
         btnLimpiarTabCDT.setEnabled(false);
+        btnLimpiarTabCDT.addActionListener(new java.awt.event.ActionListener()
+        {
+            public void actionPerformed(java.awt.event.ActionEvent evt)
+            {
+                btnLimpiarTabCDTActionPerformed(evt);
+            }
+        });
 
         btnSalirTabCDT.setMnemonic('S');
         btnSalirTabCDT.setText("Salir");
@@ -628,6 +656,7 @@ public class MainFrame extends javax.swing.JFrame {
         txtRendCDT.setEditable(false);
         txtRendCDT.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtRendCDT.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtRendCDT.setEnabled(false);
         tabCDAT.add(txtRendCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 215, 30));
 
         calFechCDT.setEnabled(false);
@@ -652,6 +681,7 @@ public class MainFrame extends javax.swing.JFrame {
         txtRetCDT.setEditable(false);
         txtRetCDT.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
         txtRetCDT.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtRetCDT.setEnabled(false);
         tabCDAT.add(txtRetCDT, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 215, 30));
 
         tabGroup.addTab("CDAT", tabCDAT);
@@ -862,6 +892,32 @@ public class MainFrame extends javax.swing.JFrame {
     private void btnCalcIntCDTActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnCalcIntCDTActionPerformed
     {//GEN-HEADEREND:event_btnCalcIntCDTActionPerformed
         // TODO add your handling code here:
+        Double interesGeneradoCDT, valorRetornoCDT; 
+        
+        if(funValidaString(txtNumCDT.getText()) == 1) {
+            JOptionPane.showMessageDialog(rootPane, "El número del CDT es requerido","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtNumCDT.requestFocus();
+            return;
+        }
+        
+        if(calFechCDT.getDate() == null) {
+            JOptionPane.showMessageDialog(rootPane, "Se requiere la fecha de apertura del CDT","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            calFechCDT.requestFocus();
+            return;
+        }
+        
+        if(txtMontoCDT.getValue() == null || ((Number)txtMontoCDT.getValue()).intValue() <= 0) {
+            JOptionPane.showMessageDialog(rootPane, "El monto del CDT debe ser diferente de cero","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtMontoCDT.requestFocus();
+            return;
+        }
+        
+        interesGeneradoCDT = ((Number)spinIntCDT.getValue()).doubleValue() * ((Number)txtMontoCDT.getValue()).doubleValue() / 100;
+        valorRetornoCDT = ((Number)spinPlazoCDT.getValue()).doubleValue() * interesGeneradoCDT;
+        
+        txtRendCDT.setValue(interesGeneradoCDT);
+        txtRetCDT.setValue(valorRetornoCDT);
+        
     }//GEN-LAST:event_btnCalcIntCDTActionPerformed
 
     private void btnNvoCDTActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnNvoCDTActionPerformed
@@ -873,14 +929,21 @@ public class MainFrame extends javax.swing.JFrame {
         spinPlazoCDT.setEnabled(true);
         spinIntCDT.setEnabled(true);
         txtMontoCDT.setEnabled(true);
+        txtRendCDT.setEnabled(true);
+        txtRetCDT.setEnabled(true);
         
         btnNvoCDT.setEnabled(false);
         btnCalcIntCDT.setEnabled(true);
         btnGrabCDT.setEnabled(true);
         btnLimpiarTabCDT.setEnabled(true);
         
-        
-        
+        txtNumCDT.setText("");
+        calFechCDT.setDate(null);
+        spinPlazoCDT.setValue(1);
+        spinIntCDT.setValue(1);
+        txtMontoCDT.setValue(null);
+        txtRendCDT.setValue(null);
+        txtRetCDT.setValue(null);
     }//GEN-LAST:event_btnNvoCDTActionPerformed
 
     private void btnSalirTabCorrienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnSalirTabCorrienteActionPerformed
@@ -970,6 +1033,7 @@ public class MainFrame extends javax.swing.JFrame {
         calFechAhorros.setEnabled(true);
         spinIntAhorros.setEnabled(true);
         txtSaldoAhorros.setEnabled(true);
+        txtRendAhorros.setEnabled(true);
 
         btnNvaCtaAhorro.setEnabled(false);
         btnCalcIntAhorro.setEnabled(true);
@@ -1237,6 +1301,117 @@ public class MainFrame extends javax.swing.JFrame {
         txtSobreCorriente.setValue(null);
         txtRendCorriente.setValue(null);
     }//GEN-LAST:event_btnLimpiarTabCorrienteActionPerformed
+
+    private void btnLimpiarTabCDTActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnLimpiarTabCDTActionPerformed
+    {//GEN-HEADEREND:event_btnLimpiarTabCDTActionPerformed
+        // TODO add your handling code here:
+        txtNumCDT.setText("");
+        txtNumCDT.requestFocus();
+        calFechCDT.setDate(null);
+        spinPlazoCDT.setValue(1);
+        spinIntCDT.setValue(1);
+        txtMontoCDT.setValue(null);
+        txtRendCDT.setValue(null);
+        txtRetCDT.setValue(null);
+    }//GEN-LAST:event_btnLimpiarTabCDTActionPerformed
+
+    private void btnGrabCDTActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnGrabCDTActionPerformed
+    {//GEN-HEADEREND:event_btnGrabCDTActionPerformed
+        // TODO add your handling code here:
+        
+        CDT Titulo = new CDT();
+      
+        if(funValidaString(txtNumCDT.getText()) == 1) {
+            JOptionPane.showMessageDialog(rootPane, "El número del CDT es requerido","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtNumCDT.requestFocus();
+            return;
+        }
+        
+        if(calFechCDT.getDate() == null) {
+            JOptionPane.showMessageDialog(rootPane, "Se requiere la fecha de apertura del CDT","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            calFechCDT.requestFocus();
+            return;
+        }
+        
+        if(txtMontoCDT.getValue() == null || ((Number)txtMontoCDT.getValue()).intValue() <= 0) {
+            JOptionPane.showMessageDialog(rootPane, "El monto del CDT debe ser diferente de cero","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtMontoCDT.requestFocus();
+            return;
+        }
+        
+        Titulo.setNumCDT(txtNumCDT.getText());
+        Titulo.setFechCDT(calFechCDT.getDate());
+        Titulo.setIntCDT(((Number)spinIntCDT.getValue()).doubleValue());
+        Titulo.setPlazoCDT(((Number)spinPlazoCDT.getValue()).intValue());
+        
+        LISTA_CDT.add(Titulo);
+        JOptionPane.showMessageDialog(rootPane, "Se grabó el título. Hay " + LISTA_CDT.size() + " títulos registrados.", "Cliente guardado", JOptionPane.INFORMATION_MESSAGE);
+
+        txtNumCDT.setEnabled(false);
+        calFechCDT.setEnabled(false);
+        spinPlazoCDT.setEnabled(false);
+        spinIntCDT.setEnabled(false);
+        txtMontoCDT.setEnabled(false);
+        txtRendCDT.setEnabled(false);
+        txtRetCDT.setEnabled(false);
+        
+        btnGrabCDT.setEnabled(false);
+        btnCalcIntCDT.setEnabled(false);
+        btnLimpiarTabCDT.setEnabled(false);
+        btnNvoCDT.setEnabled(true);
+        
+        
+    }//GEN-LAST:event_btnGrabCDTActionPerformed
+
+    private void btnGrabCtaCorrienteActionPerformed(java.awt.event.ActionEvent evt)//GEN-FIRST:event_btnGrabCtaCorrienteActionPerformed
+    {//GEN-HEADEREND:event_btnGrabCtaCorrienteActionPerformed
+        // TODO add your handling code here:
+        
+        CuentaCorriente cuentaCorriente = new CuentaCorriente();
+        
+        if(funValidaString(txtNumCorriente.getText()) == 1) {
+            JOptionPane.showMessageDialog(rootPane, "Se requiere el número de la cuenta","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtNumCorriente.requestFocus();
+            return;
+        }
+        
+       if(txtSaldoCorriente.getValue() == null) {
+            JOptionPane.showMessageDialog(rootPane, "El saldo de la cuenta es requerido.","¡Atención!", JOptionPane.ERROR_MESSAGE);
+            txtSaldoCorriente.requestFocus();
+            return;
+        }
+       
+        if(calFechCorriente.getDate() == null) {
+            JOptionPane.showMessageDialog(rootPane, "La fecha de apertura es requerida", "¡Atención!", JOptionPane.ERROR_MESSAGE);
+            calFechCorriente.requestFocus();
+        }
+        
+        if(txtSobreCorriente.getValue() == null) {
+            txtSobreCorriente.setValue(0);
+        }
+        
+        cuentaCorriente.setNumCuenta(txtNumCorriente.getText());
+        cuentaCorriente.setFechCuenta(calFechCorriente.getDate());
+        cuentaCorriente.setSalCuenta(((Number)txtSaldoCorriente.getValue()).doubleValue());
+        cuentaCorriente.setIntCuenta(((Number)spinIntCorriente.getValue()).doubleValue());
+        
+        LISTA_CORRIENTE.add(cuentaCorriente);
+        JOptionPane.showMessageDialog(rootPane, "Se grabó la cuenta corriente. Hay " + LISTA_CORRIENTE.size() + " cuentas registradas.", "Cliente guardado", JOptionPane.INFORMATION_MESSAGE);
+        
+        txtNumCorriente.setEnabled(false);
+        txtNumCorriente.requestFocus();
+        calFechCorriente.setEnabled(false);
+        txtSaldoCorriente.setEnabled(false);
+        txtSobreCorriente.setEnabled(false);
+        txtRendCorriente.setEnabled(false);
+        spinIntCorriente.setEnabled(false);
+        
+        btnNvaCtaCorriente.setEnabled(true);
+        btnCalcIntCorriente.setEnabled(false);
+        btnGrabCtaCorriente.setEnabled(false);
+        btnLimpiarTabCorriente.setEnabled(false);
+      
+    }//GEN-LAST:event_btnGrabCtaCorrienteActionPerformed
 
     
     
